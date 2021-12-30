@@ -1,0 +1,35 @@
+Script started on 2021-03-28 18:02:46-04:00 [TERM="xterm-256color" TTY="/dev/pts/1" COLUMNS="81" LINES="34"]
+]0;root@nikita-pc: /mnt/c/Users/nikita/OneDrive/Desktop/vassilye/lab10root@nikita-pc:/mnt/c/Users/nikita/OneDrive/Desktop/vassilye/lab10# gdb randclien t
+[35;1m[35;1mGNU gdb [m[35;1m(Ubuntu 9.2-0ubuntu1~20.04) [m[35;1m9.2[m[35;1m
+[m[mCopyright (C) 2020 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.
+Type "show copying" and "show warranty" for details.
+This GDB was configured as "x86_64-linux-gnu".
+Type "show configuration" for configuration details.
+For bug reporting instructions, please see:
+<http://www.gnu.org/software/gdb/bugs/>.
+Find the GDB manual and other documentation resources online at:
+    <http://www.gnu.org/software/gdb/documentation/>.
+
+For help, type "help".
+Type "apropos word" to search for commands related to "word"...
+Reading symbols from [32mrandclient[m...
+(gdb) run[K[K[Krun 127.0.0.1
+Starting program: /mnt/c/Users/nikita/OneDrive/Desktop/vassilye/lab10/randclient 127.0.0.1
+connect: Connection refused
+[Inferior 1 (process 636) exited with code 01]
+(gdb) run 127.0.0.1
+Starting program: /mnt/c/Users/nikita/OneDrive/Desktop/vassilye/lab10/randclient 127.0.0.1
+[Inferior 1 (process 640) exited normally]
+(gdb) n
+The program is not being run.
+(gdb) ru[K[Knrun 127.0.0.1
+Starting program: /mnt/c/Users/nikita/OneDrive/Desktop/vassilye/lab10/randclient 127.0.0.1
+[Inferior 1 (process 641) exited normally]
+(gdb) qu[K[Kquit
+]0;root@nikita-pc: /mnt/c/Users/nikita/OneDrive/Desktop/vassilye/lab10root@nikita-pc:/mnt/c/Users/nikita/OneDrive/Desktop/vassilye/lab10# exit
+exit
+
+Script done on 2021-03-28 18:08:54-04:00 [COMMAND_EXIT_CODE="0"]

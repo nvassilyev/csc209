@@ -1,0 +1,381 @@
+Script started on 2021-02-26 17:42:15-0500
+]0;vassilye@wolf:/h/u6/c9/01/vassilye/csc209/vassilye/lab6wolf:~/csc209/vassilye/lab6$ dg[K[Kgdb overl[Kflow
+GNU gdb (Ubuntu 8.1.1-0ubuntu1) 8.1.1
+Copyright (C) 2018 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.  Type "show copying"
+and "show warranty" for details.
+This GDB was configured as "x86_64-linux-gnu".
+Type "show configuration" for configuration details.
+For bug reporting instructions, please see:
+<http://www.gnu.org/software/gdb/bugs/>.
+Find the GDB manual and other documentation resources online at:
+<http://www.gnu.org/software/gdb/documentation/>.
+For help, type "help".
+Type "apropos word" to search for commands related to "word"...
+Reading symbols from overflow...done.
+(gdb) list
+warning: Source file is more recent than executable.
+1       #include <stdio.h>
+2       
+3       #define SIZE 4 
+4       #define OVERFLOW 5 
+5       
+6       int main() {
+7           int index = 0;
+8           int i;
+9           int before[SIZE] = {10, 10, 10, 10};
+10          int a[SIZE] = {0, 0, 0, 0};
+(gdb) break[K(gdb) break[K(gdb) break line[K[K[K[K36
+Breakpoint 1 at 0x959: file overflow.c, line 36.
+(gdb) run
+Starting program: /h/u6/c9/01/vassilye/csc209/vassilye/lab6/overflow 
+Address of the variables:
+7fffffffe940 -> &after[0]
+7fffffffe944 -> &after[1]
+7fffffffe948 -> &after[2]
+7fffffffe94c -> &after[3]
+7fffffffe930 -> &a[0]
+7fffffffe934 -> &a[1]
+7fffffffe938 -> &a[2]
+7fffffffe93c -> &a[3]
+7fffffffe920 -> &before[0]
+7fffffffe924 -> &before[1]
+7fffffffe928 -> &before[2]
+7fffffffe92c -> &before[3]
+7fffffffe91c -> &i
+7fffffffe918 -> &index
+
+Initial values:
+i = 0
+before = {10, 10, 10, 10}
+a = {0, 0, 0, 0}
+after = {10, 10, 10, 10}
+
+
+Breakpoint 1, main () at overflow.c:36
+36          for (i = 0; i < OVERFLOW; i++) {
+(gdb) exit
+Undefined command: "exit".  Try "help".
+(gdb) scrip[K[K[K[K[Kquit
+A debugging session is active.
+
+        Inferior 1 [process 26158] will be killed.
+
+Quit anyway? (y or n) y
+]0;vassilye@wolf:/h/u6/c9/01/vassilye/csc209/vassilye/lab6wolf:~/csc209/vassilye/lab6$ script
+Script started, file is typescript
+]0;vassilye@wolf:/h/u6/c9/01/vassilye/csc209/vassilye/lab6wolf:~/csc209/vassilye/lab6$ gdb overflow
+GNU gdb (Ubuntu 8.1.1-0ubuntu1) 8.1.1
+Copyright (C) 2018 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.  Type "show copying"
+and "show warranty" for details.
+This GDB was configured as "x86_64-linux-gnu".
+Type "show configuration" for configuration details.
+For bug reporting instructions, please see:
+<http://www.gnu.org/software/gdb/bugs/>.
+Find the GDB manual and other documentation resources online at:
+<http://www.gnu.org/software/gdb/documentation/>.
+For help, type "help".
+Type "apropos word" to search for commands related to "word"...
+Reading symbols from overflow...done.
+(gdb) line
+Undefined command: "line".  Try "help".
+(gdb) lst[K[Kist
+warning: Source file is more recent than executable.
+1       #include <stdio.h>
+2       
+3       #define SIZE 4 
+4       #define OVERFLOW 5 
+5       
+6       int main() {
+7           int index = 0;
+8           int i;
+9           int before[SIZE] = {10, 10, 10, 10};
+10          int a[SIZE] = {0, 0, 0, 0};
+(gdb) s[Kbreak 36
+Breakpoint 1 at 0x959: file overflow.c, line 36.
+(gdb) break main[K[K[K[K35
+Note: breakpoint 1 also set at pc 0x959.
+Breakpoint 2 at 0x959: file overflow.c, line 35.
+(gdb) break 43
+Breakpoint 3 at 0xa0e: file overflow.c, line 43.
+(gdb) run
+Starting program: /h/u6/c9/01/vassilye/csc209/vassilye/lab6/overflow 
+Address of the variables:
+7fffffffe940 -> &after[0]
+7fffffffe944 -> &after[1]
+7fffffffe948 -> &after[2]
+7fffffffe94c -> &after[3]
+7fffffffe930 -> &a[0]
+7fffffffe934 -> &a[1]
+7fffffffe938 -> &a[2]
+7fffffffe93c -> &a[3]
+7fffffffe920 -> &before[0]
+7fffffffe924 -> &before[1]
+7fffffffe928 -> &before[2]
+7fffffffe92c -> &before[3]
+7fffffffe91c -> &i
+7fffffffe918 -> &index
+
+Initial values:
+i = 0
+before = {10, 10, 10, 10}
+a = {0, 0, 0, 0}
+after = {10, 10, 10, 10}
+
+
+Breakpoint 1, main () at overflow.c:36
+36          for (i = 0; i < OVERFLOW; i++) {
+(gdb) print[K[K[K[K[Kprint &(after[0])[C[C[C
+$1 = (int *) 0x7fffffffe940
+(gdb) print &(after[0])[1P])[1P])[1P])[1P])[1P])[1P])[])4])[C[C
+$2 = (int *) 0x7fffffffe940
+(gdb) conin[K[Ktinue
+Continuing.
+i = 0
+before = {10, 10, 10, 10}
+a = {0, 0, 0, 0}
+after = {10, 10, 10, 10}
+i = 1
+before = {10, 10, 10, 10}
+a = {0, 10, 0, 0}
+after = {10, 10, 10, 10}
+i = 2
+before = {10, 10, 10, 10}
+a = {0, 10, 20, 0}
+after = {10, 10, 10, 10}
+i = 3
+before = {10, 10, 10, 10}
+a = {0, 10, 20, 30}
+after = {10, 10, 10, 10}
+
+Breakpoint 3, main () at overflow.c:44
+44          return 0;
+(gdb) cotin[K[K[K[K[Knes[Kxt
+45      }
+(gdb) 
+__libc_start_main (main=0x55555555473a <main>, argc=1, argv=0x7fffffffea48, init=<optimized out>, fini=<optimized out>, rtld_fini=<optimized out>, 
+    stack_end=0x7fffffffea38) at ../csu/libc-start.c:344
+344     ../csu/libc-start.c: No such file or directory.
+(gdb) cotin[K[K[Kntinue
+Continuing.
+[Inferior 1 (process 29943) exited normally]
+(gdb) backtrace
+No stack.
+(gdb) quit
+]0;vassilye@wolf:/h/u6/c9/01/vassilye/csc209/vassilye/lab6wolf:~/csc209/vassilye/lab6$ v[Kexit script[K[K[K[K[K[K
+exit
+Script done, file is typescript
+]0;vassilye@wolf:/h/u6/c9/01/vassilye/csc209/vassilye/lab6wolf:~/csc209/vassilye/lab6$ vi overflow.c
+[?2004h[?1049h[22;0;0t[?1h=[?2004h[1;30r[?12h[?12l[27m[23m[29m[m[H[2J[?25l[30;1H"overflow.c" 45L, 1423C[2;1H▽[6n[2;1H  [1;1H[>c]10;?]11;?[1;5H[38;5;130mfor[m (index = [31m0[m; index < SIZE; index++) {[2;9Hprintf([31m"[m[35m%lx[m[31m -> &a[[m[35m%d[m[31m][m[35m\n[m[31m"[m, ([32munsigned[m [32mlong[m) &a[index], index);
+    }
+    [38;5;130mfor[m (index = [31m0[m; index < SIZE; index++) {[5;9Hprintf([31m"[m[35m%lx[m[31m -> &before[[m[35m%d[m[31m][m[35m\n[m[31m"[m, ([32munsigned[m [32mlong[m) &before[index], index);
+    }
+    printf([31m"[m[35m%lx[m[31m -> &i[m[35m\n[m[31m"[m, ([32munsigned[m [32mlong[m)&i);
+    printf([31m"[m[35m%lx[m[31m -> &index[m[35m\n[m[31m"[m, ([32munsigned[m [32mlong[m)&index);
+    printf([31m"[m[35m\n[m[31m"[m);[12;5Hprintf([31m"Initial values:[m[35m\n[m[31m"[m);
+    printf([31m"i = [m[35m%d\n[m[31m"[m, i);
+    printf([31m"before = {[m[35m%d[m[31m, [m[35m%d[m[31m, [m[35m%d[m[31m, [m[35m%d[m[31m}[m[35m\n[m[31m"[m, before[[31m0[m], before[[31m1[m], before[[31m2[m], before[[31m3[m]);
+    printf([31m"a = {[m[35m%d[m[31m, [m[35m%d[m[31m, [m[35m%d[m[31m, [m[35m%d[m[31m}[m[35m\n[m[31m"[m, a[[31m0[m], a[[31m1[m], a[[31m2[m], a[[31m3[m]);
+    printf([31m"after = {[m[35m%d[m[31m, [m[35m%d[m[31m, [m[35m%d[m[31m, [m[35m%d[m[31m}[m[35m\n[m[31m"[m, after[[31m0[m], after[[31m1[m], after[[31m2[m], after[[31m3[m]);
+    printf([31m"[m[35m\n[m[31m"[m);[20;5H[38;5;130mfor[m (i = [31m0[m; i < OVERFLOW; i++) {[21;9Ha[i] = i * [31m10[m;[22;9Hprintf([31m"i = [m[35m%d\n[m[31m"[m, i);[23;9Hprintf([31m"before = {[m[35m%d[m[31m, [m[35m%d[m[31m, [m[35m%d[m[31m, [m[35m%d[m[31m}[m[35m\n[m[31m"[m, before[[31m0[m], before[[31m1[m], before[[31m2[m], before[[31m3[m]);[24;9Hprintf([31m"a = {[m[35m%d[m[31m, [m[35m%d[m[31m, [m[35m%d[m[31m, [m[35m%d[m[31m}[m[35m\n[m[31m"[m, a[[31m0[m], a[[31m1[m], a[[31m2[m], a[[31m3[m]);[25;9Hprintf([31m"after = {[m[35m%d[m[31m, [m[35m%d[m[31m, [m[35m%d[m[31m, [m[35m%d[m[31m}[m[35m\n[m[31m"[m, after[[31m0[m], after[[31m1[m], after[[31m2[m], after[[31m3[m]);
+    }[28;5H[38;5;130mreturn[m [31m0[m;
+}[30;148H45,1[10CBot[29;1H[?25h[?25l[30;138H~@k[29;1H[30;138H   [28;1H[30;149H4[28;1H[?25h[?25l[30;138H~@k[28;1H[30;138H   [27;1H[30;149H3,0-1[27;1H[?25h[?25l[30;138H~@k[27;1H[30;138H   [26;1H[30;149H2,1  [26;1H[?25h[?25l[30;138H~@k[26;1H[30;138H   [25;1H[30;149H1[25;1H[?25h[?25l[30;138H~@k[25;1H[30;138H   [24;1H[30;149H0[24;1H[?25h[?25l[30;138H~@k[24;1H[30;138H   [23;1H[30;148H39[23;1H[?25h[?25l[30;138H~@k[23;1H[30;138H   [22;1H[30;149H8[22;1H[?25h[?25l[30;138H~@k[22;1H[30;138H   [21;1H[30;149H7[21;1H[?25h[?25l[30;138H~@k[21;1H[30;138H   [20;1H[30;149H6[20;1H[?25h[?25l[30;138H~@k[20;1H[30;138H   [19;1H[30;149H5,0-1[19;1H[?25h[?25l[30;138H~@k[19;1H[30;138H   [18;1H[30;149H4[18;1H[?25h[?25l[30;138H~@k[18;1H[30;138H   [17;1H[30;149H3,1  [17;1H[?25h[?25l[30;138H~@k[17;1H[30;138H   [16;1H[30;149H2[16;1H[?25h[?25l[30;138H~@k[16;1H[30;138H   [15;1H[30;149H1[15;1H[?25h[?25l[30;138H~@k[15;1H[30;138H   [14;1H[30;149H0[14;1H[?25h[?25l[30;138H~@k[14;1H[30;138H   [13;1H[30;148H29[13;1H[?25h[?25l[30;138H~@k[13;1H[30;138H   [12;1H[30;149H8[12;1H[?25h[?25l[30;138H~@k[12;1H[30;138H   [11;1H[30;149H7,0-1[11;1H[?25h[?25l[30;138H~@k[11;1H[30;138H   [10;1H[30;149H6[10;1H[?25h[?25l[30;138H~@k[10;1H[30;138H   [9;1H[30;149H5,1  [9;1H[?25h[?25l[30;138H~@k[9;1H[30;138H   [8;1H[30;149H4[8;1H[?25h[?25l[30;138H~@k[8;1H[30;138H   [7;1H[30;149H3[7;1H[?25h[?25l[30;138H~@k[7;1H[30;138H   [6;1H[30;149H2[6;1H[?25h[?25l[30;138H~@k[6;1H[30;138H   [6;1H[1;29r[1;1H[L[1;30r[1;5H}[30;1H[K[30;148H21,1[10C93%[6;1H[?25h[?25l[1;29r[1;1H[L[1;30r[1;9Hprintf([31m"[m[35m%lx[m[31m -> &after[[m[35m%d[m[31m][m[35m\n[m[31m"[m, ([32munsigned[m [32mlong[m) &after[index], index);[30;148H[K[30;148H20,1[10C87%[6;1H[?25h[?25l[30;138H~@k[6;1H[30;138H   [6;1H[1;29r[1;1H[L[1;30r[1;5H[38;5;130mfor[m (index = [31m0[m; index < SIZE; index++) {[30;148H[K[30;148H19,1[10C81%[6;1H[?25h[?25l[30;138H~@k[6;1H[30;138H   [6;1H[1;29r[1;1H[L[1;30r[1;5Hprintf([31m"Address of the variables:[m[35m\n[m[31m"[m);[30;148H[K[30;148H18,1[10C75%[6;1H[?25h[?25l[1;29r[1;1H[L[1;30r[30;148H[K[30;148H17,1[10C68%[6;1H[?25h[?25l[30;138H~@k[6;1H[30;138H   [6;1H[1;29r[1;1H[L[1;30r[1;5H[32mint[m after[SIZE] = {[31m10[m, [31m10[m, [31m10[m, [31m10[m};[30;148H[K[30;148H16,1[10C62%[6;1H[?25h[?25l[1;29r[1;1H[L[1;30r[1;5H[32mint[m a[SIZE] = {[31m0[m, [31m0[m, [31m0[m, [31m0[m};[30;148H[K[30;148H15,1[10C56%[6;1H[?25h[?25l[30;138H~@k[6;1H[30;138H   [6;1H[1;29r[1;1H[L[1;30r[1;5H[32mint[m before[SIZE] = {[31m10[m, [31m10[m, [31m10[m, [31m10[m};[30;148H[K[30;148H14,1[10C50%[6;1H[?25h[?25l[30;138H~@k[6;1H[30;138H   [6;1H[1;29r[1;1H[L[1;30r[1;5H[32mint[m i;[30;148H[K[30;148H13,1[10C43%[6;1H[?25h[?25l[30;138H~@k[6;1H[30;138H   [6;1H[1;29r[1;1H[L[1;30r[1;5H[32mint[m index = [31m0[m;[30;148H[K[30;148H12,0-1[8C37%[6;1H[?25h[?25l[30;138H~@k[6;1H[30;138H   [6;1H[1;29r[1;1H[L[1;30r[1;1H[32mint[m main() {[30;148H[K[30;148H11,1[10C31%[6;1H[?25h[?25l[30;138H~@k[6;1H[30;138H   [6;1H[1;29r[1;1H[L[1;30r[30;148H[K[30;148H10,1[10C25%[6;1H[?25h[?25l[30;138H~@k[6;1H[30;138H   [6;1H[1;29r[1;1H[L[1;30r[1;1H[35m#define OVERFLOW [m[31m5[m[35m [m[30;148H[K[30;148H9,1[11C18%[6;1H[?25h[?25l[1;29r[1;1H[L[1;30r[1;1H[35m#define SIZE [m[31m4[m[35m [m[30;148H[K[30;148H8,1[11C12%[6;1H[?25h[?25l[30;138H~@k[6;1H[30;138H   [6;1H[1;29r[1;1H[L[1;30r[30;148H[K[30;148H7,1[12C6%[6;1H[?25h[?25l[30;138H~@k[6;1H[30;138H   [6;1H[1;29r[1;1H[L[1;30r[1;1H[35m#include [m[31m<stdio.h>[m[30;148H[K[30;148H6,1[11CTop[6;1H[?25h[?25l[30;138H~@k[6;1H[30;138H   [5;1H[30;148H5,0-1[5;1H[?25h[?25l[30;148H4,1  [4;1H[?25h[?25l[30;138H~@k[4;1H[30;138H   [3;1H[30;148H3[3;1H[?25h[?25l[30;138H~@k[3;1H[30;138H   [2;1H[30;148H2,0-1[2;1H[?25h[?25l[30;138H~@k[2;1H[30;138H   [1;1H[30;148H1,1  [1;1H[?25h[?25l[30;138H~@k[1;1H[30;138H   [1;1H[?25h[?25l[30;138H~@k[1;1H[30;138H   [1;1H[?25h[?25l[30;138H~@k[1;1H[30;138H   [1;1H[?25h[?25l[30;138H~@k[1;1H[30;138H   [1;1H[?25h[?25l[30;138H~@k[1;1H[30;138H   [1;1H[?25h[?25l[30;138H~@k[1;1H[30;138H   [1;1H[?25h[?25l[30;138H~@k[1;1H[30;138H   [1;1H[?25h[?25l[30;138H~@k[1;1H[30;138H   [1;1H[?25h[?25l[30;138H~@k[1;1H[30;138H   [1;1H[?25h[?25l[30;138H~@k[1;1H[30;138H   [1;1H[?25h[?25l[30;138H~@k[1;1H[30;138H   [1;1H[?25h[?25l[30;138H~@k[1;1H[30;138H   [1;1H[?25h[?25l[30;138H~@k[1;1H[30;138H   [1;1H[?25h[?25l[30;138H~@k[1;1H[30;138H   [1;1H[?25h[?25l[30;138H~@k[1;1H[30;138H   [1;1H[?25h[?25l[30;138H~@k[1;1H[30;138H   [1;1H[?25h[?25l[30;138H~@k[1;1H[30;138H   [1;1H[?25h[?25l[30;138H~@k[1;1H[30;138H   [1;1H[?25h[?25l[30;138H~@k[1;1H[30;138H   [1;1H[?25h[?25l[30;138H~@k[1;1H[30;138H   [1;1H[?25h[?25l[30;138H~@k[1;1H[30;138H   [1;1H[?25h[?25l[30;138H~@k[1;1H[30;138H   [1;1H[?25h[?25l[30;138H~@k[1;1H[30;138H   [1;1H[?25h[?25l[30;138H~@k[1;1H[30;138H   [2;1H[30;148H2,0-1[2;1H[?25h[?25l[30;138H~@k[2;1H[30;138H   [3;1H[30;148H3,1  [3;1H[?25h[?25l[30;138H~@k[3;1H[30;138H   [4;1H[30;148H4[4;1H[?25h[?25l[30;138H~@k[4;1H[30;138H   [5;1H[30;148H5,0-1[5;1H[?25h[?25l[30;138H~@k[5;1H[30;138H   [6;1H[30;148H6,1  [6;1H[?25h[?25l[30;138H~@k[6;1H[30;138H   [7;1H[30;148H7[7;1H[?25h[?25l[30;138H~@k[7;1H[30;138H   [8;1H[30;148H8[8;1H[?25h[?25l[30;138H~@k[8;1H[30;138H   [7;1H[30;148H7[7;1H[?25h[?25l[30;138H~@k[7;1H[30;138H   [6;1H[30;148H6[6;1H[?25h[?25l[30;138H~@k[6;1H[30;138H   [5;1H[30;148H5,0-1[5;1H[?25h[?25l[30;138H~@k[5;1H[30;138H   [4;1H[30;148H4,1  [4;1H[?25h[?25l[30;138H~@k[4;1H[30;138H   [3;1H[30;148H3[3;1H[?25h[?25l[30;138H~@k[3;1H[30;138H   [2;1H[30;148H2,0-1[2;1H[?25h[?25l[30;138H~@k[2;1H[30;138H   [1;1H[30;148H1,1  [1;1H[?25h[?25l[30;138H~@k[1;1H[30;138H   [2;1H[30;148H2,0-1[2;1H[?25h[?25l[30;138H~@k[2;1H[30;138H   [3;1H[30;148H3,1  [3;1H[?25h[?25l[30;138H~@k[3;1H[30;138H   [4;1H[30;148H4[4;1H[?25h[?25l[30;138H~@k[4;1H[30;138H   [4;2H[30;150H2[4;2H[?25h[?25l[30;138H~@k[4;2H[30;138H   [4;3H[30;150H3[4;3H[?25h[?25l[30;138H~@k[4;3H[30;138H   [4;4H[30;150H4[4;4H[?25h[?25l[30;138H~@k[4;4H[30;138H   [4;5H[30;150H5[4;5H[?25h[?25l[30;138H~@k[4;5H[30;138H   [4;6H[30;150H6[4;6H[?25h[?25l[30;138H~@k[4;6H[30;138H   [4;7H[30;150H7[4;7H[?25h[?25l[30;138H~@k[4;7H[30;138H   [4;8H[30;150H8[4;8H[?25h[?25l[30;138H~@k[4;8H[30;138H   [4;9H[30;150H9[4;9H[?25h[?25l[30;138H~@k[4;9H[30;138H   [4;10H[30;150H10[4;10H[?25h[?25l[30;138H~@k[4;10H[30;138H   [4;11H[30;151H1[4;11H[?25h[?25l[30;138H~@k[4;11H[30;138H   [4;12H[30;151H2[4;12H[?25h[?25l[30;138H~@k[4;12H[30;138H   [4;13H[30;151H3[4;13H[?25h[?25l[30;138H~@k[4;13H[30;138H   [4;14H[30;151H4[4;14H[?25h[?25l[30;138H~@k[4;14H[30;138H   [4;15H[30;151H5[4;15H[?25h[?25l[30;151H6[4;16H[?25h[?25l[30;138H~@k[4;16H[30;138H   [4;17H[30;151H7[4;17H[?25h[?25l[30;138H~@k[4;17H[30;138H   [4;18H[30;151H8[4;18H[?25h[?25l[30;138H~@k[4;18H[30;138H   [4;19H[30;151H9[4;19H[?25h[?25l[30;138H~@k[4;19H[30;138H   [4;19H[?25h[?25l[30;138Hi[4;19H[30;138H [4;19H[30;1H[1m-- INSERT --[m[30;148H[K[30;148H4,19[10CTop[4;19H[?25h[?25l[31m0[m[35m [m[30;150H20[4;20H[?25h[?25l[31m0[m[35m [m[30;151H1[4;21H[?25h[?25l[31m0[m[35m [m[30;151H2[4;22H[?25h[?25l[31m0[m[35m [m[30;151H3[4;23H[?25h[?25l[31m0[m[35m [m[30;151H4[4;24H[?25h[?25l[31m0[m[35m [m[30;151H5[4;25H[?25h[?25l[31m0[m[35m [m[30;151H6[4;26H[?25h[30;1H[K[4;25H[?25l[30;138H^[[4;25H[30;138H  [4;26H[30;148H4,25[10CTop[4;25H[?25h[?25l[30;138H:[4;25H[30;138H[K[30;1H:[?2004h[?25hw[?25l[?25hq[?25l[?25h[?25l[?2004l"overflow.c" 45L, 1430C written
+[?2004l[?1l>[?25h[?1049l[23;0;0t]0;vassilye@wolf:/h/u6/c9/01/vassilye/csc209/vassilye/lab6wolf:~/csc209/vassilye/lab6$ mv typescript gdb_example.[K.txt
+]0;vassilye@wolf:/h/u6/c9/01/vassilye/csc209/vassilye/lab6wolf:~/csc209/vassilye/lab6$ ls
+copy.c  gdb_example.txt  overflow  overflow.c
+]0;vassilye@wolf:/h/u6/c9/01/vassilye/csc209/vassilye/lab6wolf:~/csc209/vassilye/lab6$ gdb_examlpe[K[K[Kple.c
+bash: gdb_example.c: command not found
+]0;vassilye@wolf:/h/u6/c9/01/vassilye/csc209/vassilye/lab6wolf:~/csc209/vassilye/lab6$ gdb_example.cls[Kgdb_example.c[K[K.txt
+bash: gdb_example.txt: command not found
+]0;vassilye@wolf:/h/u6/c9/01/vassilye/csc209/vassilye/lab6wolf:~/csc209/vassilye/lab6$ vi e[Kgdb_example.txt
+[?2004h[?1049h[22;0;0t[?1h=[?2004h[1;30r[?12h[?12l[27m[23m[29m[m[H[2J[?25l[30;1H"gdb_example.txt" [noeol] 187L, 16384C[2;1H▽[6n[2;1H  [1;1H[>c]10;?]11;?[1;1HScript started on 2021-02-26 17:42:15-0500
+[34m^[[m]0;vassilye@wolf:/h/u6/c9/01/vassilye/csc209/vassilye/lab6[34m^G[mwolf:~/csc209/vassilye/lab6$ dg[34m^H^[[m[K[34m^H^[[m[Kgdb overl[34m^H^[[m[Kflow[34m^M[m
+GNU gdb (Ubuntu 8.1.1-0ubuntu1) 8.1.1[34m^M[m
+Copyright (C) 2018 Free Software Foundation, Inc.[34m^M[m
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>[34m^M[m
+This is free software: you are free to change and redistribute it.[34m^M[m
+There is NO WARRANTY, to the extent permitted by law.  Type "show copying"[34m^M[m
+and "show warranty" for details.[34m^M[m
+This GDB was configured as "x86_64-linux-gnu".[34m^M[m
+Type "show configuration" for configuration details.[34m^M[m
+For bug reporting instructions, please see:[34m^M[m
+<http://www.gnu.org/software/gdb/bugs/>.[34m^M[m
+Find the GDB manual and other documentation resources online at:[34m^M[m
+<http://www.gnu.org/software/gdb/documentation/>.[34m^M[m
+For help, type "help".[34m^M[m
+Type "apropos word" to search for commands related to "word"...[34m^M[m
+Reading symbols from overflow...done.[34m^M[m
+(gdb) list[34m^M[m
+warning: Source file is more recent than executable.[34m^M[m
+1[7C#include <stdio.h>[34m^M[m
+2[7C[34m^M[m
+3[7C#define SIZE 4 [34m^M[m
+4[7C#define OVERFLOW 5 [34m^M[m
+5[7C[34m^M[m
+6[7Cint main() {[34m^M[m
+7[11Cint index = 0;[34m^M[m
+8[11Cint i;[34m^M[m
+9[11Cint before[SIZE] = {10, 10, 10, 10};[34m^M[m
+10[10Cint a[SIZE] = {0, 0, 0, 0};[34m^M[m[30;148H1,1[11CTop[1;1H[?25h[?25l[30;138H~@k[1;1H[30;138H   [2;1H[30;148H2[2;1H[?25h[?25l[30;138H~@k[2;1H[30;138H   [3;1H[30;148H3[3;1H[?25h[?25l[30;138H~@k[3;1H[30;138H   [4;1H[30;148H4[4;1H[?25h[?25l[30;138H~@k[4;1H[30;138H   [5;1H[30;148H5[5;1H[?25h[?25l[30;138H~@k[5;1H[30;138H   [6;1H[30;148H6[6;1H[?25h[?25l[30;138H~@k[6;1H[30;138H   [7;1H[30;148H7[7;1H[?25h[?25l[30;138H~@k[7;1H[30;138H   [8;1H[30;148H8[8;1H[?25h[?25l[30;138H~@k[8;1H[30;138H   [9;1H[30;148H9[9;1H[?25h[?25l[30;138H~@k[9;1H[30;138H   [10;1H[30;148H10,1[10;1H[?25h[?25l[30;138H~@k[10;1H[30;138H   [11;1H[30;149H1[11;1H[?25h[?25l[30;138H~@k[11;1H[30;138H   [12;1H[30;149H2[12;1H[?25h[?25l[30;138H~@k[12;1H[30;138H   [13;1H[30;149H3[13;1H[?25h[?25l[30;138H~@k[13;1H[30;138H   [14;1H[30;149H4[14;1H[?25h[?25l[30;138H~@k[14;1H[30;138H   [15;1H[30;149H5[15;1H[?25h[?25l[30;138H~@k[15;1H[30;138H   [16;1H[30;149H6[16;1H[?25h[?25l[30;138H~@k[16;1H[30;138H   [17;1H[30;149H7[17;1H[?25h[?25l[30;138H~@k[17;1H[30;138H   [18;1H[106m([mgdb[106m)[m[30;149H8[18;1H[?25h[?25l[30;138H~@k[18;1H[30;138H   [19;1H[18;1H(gdb)[30;149H9[19;1H[?25h[?25l[30;138H~@k[19;1H[30;138H   [20;1H[30;148H20[20;1H[?25h[?25l[30;138H~@k[20;1H[30;138H   [21;1H[30;149H1[21;1H[?25h[?25l[30;138H~@k[21;1H[30;138H   [22;1H[30;149H2[22;1H[?25h[?25l[30;138H~@k[22;1H[30;138H   [23;1H[30;149H3[23;1H[?25h[?25l[30;138H~@k[23;1H[30;138H   [24;1H[30;149H4[24;1H[?25h[?25l[30;138H~@k[24;1H[30;138H   [24;1H[1;29r[29;1H
+[1;30r[29;1H(gdb) break[34m^M^[[m[K(gdb) break[34m^M^[[m[K(gdb) break line[34m^H^[[m[K[34m^H^[[m[K[34m^H^[[m[K[34m^H^[[m[K36[34m^M[m[30;1H[K[30;148H25,1[11C0%[24;1H[?25h[?25l[30;138H~@k[24;1H[30;138H   [24;1H[1;29r[29;1H
+[1;30r[29;1HBreakpoint 1 at 0x959: file overflow.c, line 36.[34m^M[m[30;148H[K[30;148H26,1[11C1%[24;1H[?25h[?25l[30;138H~@k[24;1H[30;138H   [24;1H[1;29r[29;1H
+[1;30r[29;1H(gdb) run[34m^M[m[30;148H[K[30;148H27,1[11C1%[24;1H[?25h[?25l[30;138H~@k[24;1H[30;138H   [24;1H[1;29r[29;1H
+[1;30r[29;1HStarting program: /h/u6/c9/01/vassilye/csc209/vassilye/lab6/overflow [34m^M[m[30;148H[K[30;148H28,1[11C2%[24;1H[?25h[?25l[1;29r[29;1H
+[1;30r[29;1HAddress of the variables:[34m^M[m[30;148H[K[30;148H29,1[11C3%[24;1H[?25h[?25l[30;138H~@k[24;1H[30;138H   [24;1H[1;29r[29;1H
+[1;30r[24;1H[106m([mgdb[106m)[m[29;1H7fffffffe940 -> &after[0][34m^M[m[30;148H[K[30;148H30,1[11C3%[24;1H[?25h[?25l[30;138H~@k[24;1H[30;138H   [24;1H[1;29r[29;1H
+[1;30r[23;1H(gdb)[29;1H7fffffffe944 -> &after[1][34m^M[m[30;148H[K[30;148H31,1[11C4%[24;1H[?25h[?25l[30;138H~@k[24;1H[30;138H   [24;1H[1;29r[29;1H
+[1;30r[24;1H[106m([mgdb[106m)[m[29;1H7fffffffe948 -> &after[2][34m^M[m[30;148H[K[30;148H32,1[11C5%[24;1H[?25h[?25l[30;138H~@k[24;1H[30;138H   [24;1H[1;29r[29;1H
+[1;30r[23;1H(gdb)[29;1H7fffffffe94c -> &after[3][34m^M[m[30;148H[K[30;148H33,1[11C5%[24;1H[?25h[?25l[30;138H~@k[24;1H[30;138H   [24;1H[1;29r[29;1H
+[1;30r[29;1H7fffffffe930 -> &a[0][34m^M[m[30;148H[K[30;148H34,1[11C6%[24;1H[?25h[?25l[1;29r[29;1H
+[1;30r[29;1H7fffffffe934 -> &a[1][34m^M[m[30;148H[K[30;148H35,1[11C6%[24;1H[?25h[?25l[1;29r[29;1H
+[1;30r[29;1H7fffffffe938 -> &a[2][34m^M[m[30;148H[K[30;148H36,1[11C7%[24;1H[?25h[?25l[1;29r[29;1H
+[1;30r[29;1H7fffffffe93c -> &a[3][34m^M[m[30;148H[K[30;148H37,1[11C8%[24;1H[?25h[?25l[1;29r[29;1H
+[1;30r[29;1H7fffffffe920 -> &before[0][34m^M[m[30;148H[K[30;148H38,1[11C8%[24;1H[?25h[?25l[1;29r[29;1H
+[1;30r[29;1H7fffffffe924 -> &before[1][34m^M[m[30;148H[K[30;148H39,1[11C9%[24;1H[?25h[?25l[1;29r[29;1H
+[1;30r[29;1H7fffffffe928 -> &before[2][34m^M[m[30;148H[K[30;148H40,1[10C10%[24;1H[?25h[?25l[1;29r[29;1H
+[1;30r[29;1H7fffffffe92c -> &before[3][34m^M[m[30;148H[K[30;148H41,1[10C10%[24;1H[?25h[?25l[1;29r[29;1H
+[1;30r[29;1H7fffffffe91c -> &i[34m^M[m[30;148H[K[30;148H42,1[10C11%[24;1H[?25h[?25l[1;29r[29;1H
+[1;30r[29;1H7fffffffe918 -> &index[34m^M[m[30;148H[K[30;148H43,1[10C12%[24;1H[?25h[?25l[30;138H~@k[24;1H[30;138H   [24;1H[1;29r[29;1H
+[1;30r[29;1H[34m^M[m[30;148H[K[30;148H44,1[10C12%[24;1H[?25h[?25l[1;29r[29;1H
+[1;30r[29;1HInitial values:[34m^M[m[30;148H[K[30;148H45,1[10C13%[24;1H[?25h[?25l[1;29r[29;1H
+[1;30r[29;1Hi = 0[34m^M[m[30;148H[K[30;148H46,1[10C13%[24;1H[?25h[?25l[30;138H~@k[24;1H[30;138H   [24;1H[1;29r[29;1H
+[1;30r[29;1Hbefore = {10, 10, 10, 10}[34m^M[m[30;148H[K[30;148H47,1[10C14%[24;1H[?25h[?25l[30;138H~@k[24;1H[30;138H   [24;1H[1;29r[29;1H
+[1;30r[29;1Ha = {0, 0, 0, 0}[34m^M[m[30;148H[K[30;148H48,1[10C15%[24;1H[?25h[?25l[30;138H~@k[24;1H[30;138H   [24;1H[1;29r[29;1H
+[1;30r[29;1Hafter = {10, 10, 10, 10}[34m^M[m[30;148H[K[30;148H49,1[10C15%[24;1H[?25h[?25l[30;138H~@k[24;1H[30;138H   [24;1H[1;29r[29;1H
+[1;30r[29;1H[34m^M[m[30;148H[K[30;148H50,1[10C16%[24;1H[?25h[?25l[30;138H~@k[24;1H[30;138H   [24;1H[1;29r[29;1H
+[1;30r[29;1H[34m^M[m[30;148H[K[30;148H51,1[10C17%[24;1H[?25h[?25l[30;138H~@k[24;1H[30;138H   [24;1H[1;29r[29;1H
+[1;30r[29;1HBreakpoint 1, main () at overflow.c:36[34m^M[m[30;148H[K[30;148H52,1[10C17%[24;1H[?25h[?25l[30;138H~@k[24;1H[30;138H   [24;1H[1;29r[29;1H
+[1;30r[29;1H36[10Cfor (i = 0; i < OVERFLOW; i++) {[34m^M[m[30;148H[K[30;148H53,1[10C18%[24;1H[?25h[?25l[30;138H~@k[24;1H[30;138H   [24;1H[1;29r[29;1H
+[1;30r[29;1H(gdb) exit[34m^M[m[30;148H[K[30;148H54,1[10C18%[24;1H[?25h[?25l[30;138H~@k[24;1H[30;138H   [24;1H[1;29r[29;1H
+[1;30r[29;1HUndefined command: "exit".  Try "help".[34m^M[m[30;148H[K[30;148H55,1[10C19%[24;1H[?25h[?25l[30;138H~@k[24;1H[30;138H   [24;1H[1;29r[29;1H
+[1;30r[29;1H(gdb) scrip[34m^H^[[m[K[34m^H^[[m[K[34m^H^[[m[K[34m^H^[[m[K[34m^H^[[m[Kquit[34m^M[m[30;148H[K[30;148H56,1[10C20%[24;1H[?25h[?25l[30;138H~@k[24;1H[30;138H   [24;1H[1;29r[29;1H
+[1;30r[29;1HA debugging session is active.[34m^M[m[30;148H[K[30;148H57,1[10C20%[24;1H[?25h[?25l[30;138H~@k[24;1H[30;138H   [24;1H[1;29r[29;1H
+[1;30r[29;1H[34m^M[m[30;148H[K[30;148H58,1[10C21%[24;1H[?25h[?25l[30;138H~@k[24;1H[30;138H   [24;1H[1;29r[29;1H
+[1;30r[24;1H[106m([mgdb[106m)[m[29;9HInferior 1 [process 26158] will be killed.[34m^M[m[30;148H[K[30;148H59,1[10C22%[24;1H[?25h[?25l[30;138H~@k[24;1H[30;138H   [24;1H[1;29r[29;1H
+[1;30r[23;1H(gdb)[29;1H[34m^M[m[30;148H[K[30;148H60,1[10C22%[24;1H[?25h[?25l[30;138H~@k[24;1H[30;138H   [24;1H[1;29r[29;1H
+[1;30r[24;1H[106m([mgdb[106m)[m[29;1HQuit anyway? (y or n) y[34m^M[m[30;148H[K[30;148H61,1[10C23%[24;1H[?25h[?25l[1;29r[29;1H
+[1;30r[23;1H(gdb)[29;1H[34m^[[m]0;vassilye@wolf:/h/u6/c9/01/vassilye/csc209/vassilye/lab6[34m^G[mwolf:~/csc209/vassilye/lab6$ script[34m^M[m[30;148H[K[30;148H62,1[10C24%[24;1H[?25h[?25l[30;138H~@k[24;1H[30;138H   [24;1H[1;29r[29;1H
+[1;30r[29;1HScript started, file is typescript[34m^M[m[30;148H[K[30;148H63,1[10C24%[24;1H[?25h[?25l[30;138H~@k[24;1H[30;138H   [24;1H[1;29r[29;1H
+[1;30r[29;1H[34m^[[m]0;vassilye@wolf:/h/u6/c9/01/vassilye/csc209/vassilye/lab6[34m^G[mwolf:~/csc209/vassilye/lab6$ gdb overflow[34m^M[m[30;148H[K[30;148H64,1[10C25%[24;1H[?25h[?25l[1;29r[29;1H
+[1;30r[29;1HGNU gdb (Ubuntu 8.1.1-0ubuntu1) 8.1.1[34m^M[m[30;148H[K[30;148H65,1[10C25%[24;1H[?25h[?25l[30;138H~@k[24;1H[30;138H   [24;1H[1;29r[29;1H
+[1;30r[29;1HCopyright (C) 2018 Free Software Foundation, Inc.[34m^M[m[30;148H[K[30;148H66,1[10C26%[24;1H[?25h[?25l[30;138H~@k[24;1H[30;138H   [24;1H[1;29r[29;1H
+[1;30r[29;1HLicense GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>[34m^M[m[30;148H[K[30;148H67,1[10C27%[24;1H[?25h[?25l[30;138H~@k[24;1H[30;138H   [24;1H[1;29r[29;1H
+[1;30r[29;1HThis is free software: you are free to change and redistribute it.[34m^M[m[30;148H[K[30;148H68,1[10C27%[24;1H[?25h[?25l[30;138H~@k[24;1H[30;138H   [24;1H[1;29r[29;1H
+[1;30r[29;1HThere is NO WARRANTY, to the extent permitted by law.  Type "show copying"[34m^M[m[30;148H[K[30;148H69,1[10C28%[24;1H[?25h[?25l[1;29r[29;1H
+[1;30r[29;1Hand "show warranty" for details.[34m^M[m[30;148H[K[30;148H70,1[10C29%[24;1H[?25h[?25l[1;29r[29;1H
+[1;30r[29;1HThis GDB was configured as "x86_64-linux-gnu".[34m^M[m[30;148H[K[30;148H71,1[10C29%[24;1H[?25h[?25l[1;29r[29;1H
+[1;30r[29;1HType "show configuration" for configuration details.[34m^M[m[30;148H[K[30;148H72,1[10C30%[24;1H[?25h[?25l[1;29r[29;1H
+[1;30r[29;1HFor bug reporting instructions, please see:[34m^M[m[30;148H[K[30;148H73,1[10C31%[24;1H[?25h[?25l[1;29r[29;1H
+[1;30r[29;1H<http://www.gnu.org/software/gdb/bugs/>.[34m^M[m[30;148H[K[30;148H74,1[10C31%[24;1H[?25h[?25l[1;29r[29;1H
+[1;30r[29;1HFind the GDB manual and other documentation resources online at:[34m^M[m[30;148H[K[30;148H75,1[10C32%[24;1H[?25h[?25l[1;29r[29;1H
+[1;30r[29;1H<http://www.gnu.org/software/gdb/documentation/>.[34m^M[m[30;148H[K[30;148H76,1[10C32%[24;1H[?25h[?25l[1;29r[29;1H
+[1;30r[29;1HFor help, type "help".[34m^M[m[30;148H[K[30;148H77,1[10C33%[24;1H[?25h[?25l[1;29r[29;1H
+[1;30r[29;1HType "apropos word" to search for commands related to "word"...[34m^M[m[30;148H[K[30;148H78,1[10C34%[24;1H[?25h[?25l[1;29r[29;1H
+[1;30r[29;1HReading symbols from overflow...done.[34m^M[m[30;148H[K[30;148H79,1[10C34%[24;1H[?25h[?25l[1;29r[29;1H
+[1;30r[29;1H(gdb) line[34m^M[m[30;148H[K[30;148H80,1[10C35%[24;1H[?25h[?25l[1;29r[29;1H
+[1;30r[29;1HUndefined command: "line".  Try "help".[34m^M[m[30;148H[K[30;148H81,1[10C36%[24;1H[?25h[?25l[1;29r[29;1H
+[1;30r[29;1H(gdb) lst[34m^H^[[m[K[34m^H^[[m[Kist[34m^M[m[30;148H[K[30;148H82,1[10C36%[24;1H[?25h[?25l[1;29r[29;1H
+[1;30r[29;1Hwarning: Source file is more recent than executable.[34m^M[m[30;148H[K[30;148H83,1[10C37%[24;1H[?25h[?25l[1;29r[29;1H
+[1;30r[29;1H1[7C#include <stdio.h>[34m^M[m[30;148H[K[30;148H84,1[10C37%[24;1H[?25h[?25l[1;29r[29;1H
+[1;30r[24;1H[106m([mgdb[106m)[m[29;1H2[7C[34m^M[m[30;148H[K[30;148H85,1[10C38%[24;1H[?25h[?25l[30;138H~@k[24;1H[30;138H   [24;1H[1;29r[29;1H
+[1;30r[23;1H(gdb)[29;1H3[7C#define SIZE 4 [34m^M[m[30;148H[K[30;148H86,1[10C39%[24;1H[?25h[?25l[30;138H~@k[24;1H[30;138H   [24;1H[1;29r[29;1H
+[1;30r[24;1H[106m([mgdb[106m)[m[29;1H4[7C#define OVERFLOW 5 [34m^M[m[30;148H[K[30;148H87,1[10C39%[24;1H[?25h[?25l[30;138H~@k[24;1H[30;138H   [24;1H[1;29r[29;1H
+[1;30r[23;1H(gdb)[29;1H5[7C[34m^M[m[30;148H[K[30;148H88,1[10C40%[24;1H[?25h[?25l[30;138H~@k[24;1H[30;138H   [24;1H[1;29r[29;1H
+[1;30r[29;1H6[7Cint main() {[34m^M[m[30;148H[K[30;148H89,1[10C41%[24;1H[?25h[?25l[30;138H~@k[24;1H[30;138H   [24;1H[1;29r[29;1H
+[1;30r[29;1H7[11Cint index = 0;[34m^M[m[30;148H[K[30;148H90,1[10C41%[24;1H[?25h[?25l[1;29r[29;1H
+[1;30r[29;1H8[11Cint i;[34m^M[m[30;148H[K[30;148H91,1[10C42%[24;1H[?25h[?25l[1;29r[29;1H
+[1;30r[29;1H9[11Cint before[SIZE] = {10, 10, 10, 10};[34m^M[m[30;148H[K[30;148H92,1[10C43%[24;1H[?25h[?25l[30;138H~@k[24;1H[30;138H   [24;1H[1;29r[29;1H
+[1;30r[29;1H10[10Cint a[SIZE] = {0, 0, 0, 0};[34m^M[m[30;148H[K[30;148H93,1[10C43%[24;1H[?25h[?25l[30;138H~@k[24;1H[30;138H   [24;1H[1;29r[29;1H
+[1;30r[29;1H(gdb) s[34m^H^[[m[Kbreak 36[34m^M[m[30;148H[K[30;148H94,1[10C44%[24;1H[?25h[?25l[30;138H~@k[24;1H[30;138H   [24;1H[1;29r[29;1H
+[1;30r[29;1HBreakpoint 1 at 0x959: file overflow.c, line 36.[34m^M[m[30;148H[K[30;148H95,1[10C44%[24;1H[?25h[?25l[30;138H~@k[24;1H[30;138H   [24;1H[1;29r[29;1H
+[1;30r[29;1H(gdb) break main[34m^H^[[m[K[34m^H^[[m[K[34m^H^[[m[K[34m^H^[[m[K35[34m^M[m[30;148H[K[30;148H96,1[10C45%[24;1H[?25h[?25l[30;138H~@k[24;1H[30;138H   [24;1H[1;29r[29;1H
+[1;30r[29;1HNote: breakpoint 1 also set at pc 0x959.[34m^M[m[30;148H[K[30;148H97,1[10C46%[24;1H[?25h[?25l[30;138H~@k[24;1H[30;138H   [24;1H[1;29r[29;1H
+[1;30r[29;1HBreakpoint 2 at 0x959: file overflow.c, line 35.[34m^M[m[30;148H[K[30;148H98,1[10C46%[24;1H[?25h[?25l[30;138H~@k[24;1H[30;138H   [24;1H[1;29r[29;1H
+[1;30r[24;1H[106m([mgdb[106m)[m[29;1H(gdb) break 43[34m^M[m[30;148H[K[30;148H99,1[10C47%[24;1H[?25h[?25l[30;138H~@k[24;1H[30;138H   [24;1H[1;29r[29;1H
+[1;30r[23;1H(gdb)[29;1HBreakpoint 3 at 0xa0e: file overflow.c, line 43.[34m^M[m[30;148H[K[30;148H100,1[9C48%[24;1H[?25h[?25l[30;138H~@k[24;1H[30;138H   [24;1H[1;29r[29;1H
+[1;30r[24;1H[106m([mgdb[106m)[m[29;1H(gdb) run[34m^M[m[30;148H[K[30;148H101,1[9C48%[24;1H[?25h[?25l[30;138H~@k[24;1H[30;138H   [24;1H[1;29r[29;1H
+[1;30r[23;1H(gdb)[29;1HStarting program: /h/u6/c9/01/vassilye/csc209/vassilye/lab6/overflow [34m^M[m[30;148H[K[30;148H102,1[9C49%[24;1H[?25h[?25l[30;138H~@k[24;1H[30;138H   [24;1H[1;29r[29;1H
+[1;30r[29;1HAddress of the variables:[34m^M[m[30;148H[K[30;148H103,1[9C50%[24;1H[?25h[?25l[30;138H~@k[24;1H[30;138H   [24;1H[1;29r[29;1H
+[1;30r[24;1H[106m([mgdb[106m)[m[29;1H7fffffffe940 -> &after[0][34m^M[m[30;148H[K[30;148H104,1[9C50%[24;1H[?25h[?25l[30;138H~@k[24;1H[30;138H   [24;1H[1;29r[29;1H
+[1;30r[23;1H(gdb)[29;1H7fffffffe944 -> &after[1][34m^M[m[30;148H[K[30;148H105,1[9C51%[24;1H[?25h[?25l[30;138H~@k[24;1H[30;138H   [24;1H[1;29r[29;1H
+[1;30r[24;1H[106m([mgdb[106m)[m[29;1H7fffffffe948 -> &after[2][34m^M[m[30;148H[K[30;148H106,1[9C51%[24;1H[?25h[?25l[30;138H~@k[24;1H[30;138H   [24;1H[1;29r[29;1H
+[1;30r[23;1H(gdb)[29;1H7fffffffe94c -> &after[3][34m^M[m[30;148H[K[30;148H107,1[9C52%[24;1H[?25h[?25l[30;138H~@k[24;1H[30;138H   [24;1H[1;29r[29;1H
+[1;30r[29;1H7fffffffe930 -> &a[0][34m^M[m[30;148H[K[30;148H108,1[9C53%[24;1H[?25h[?25l[30;138H~@k[24;1H[30;138H   [24;1H[1;29r[29;1H
+[1;30r[29;1H7fffffffe934 -> &a[1][34m^M[m[30;148H[K[30;148H109,1[9C53%[24;1H[?25h[?25l[30;138H~@k[24;1H[30;138H   [24;1H[1;29r[29;1H
+[1;30r[29;1H7fffffffe938 -> &a[2][34m^M[m[30;148H[K[30;148H110,1[9C54%[24;1H[?25h[?25l[30;138H~@k[24;1H[30;138H   [24;1H[1;29r[29;1H
+[1;30r[29;1H7fffffffe93c -> &a[3][34m^M[m[30;148H[K[30;148H111,1[9C55%[24;1H[?25h[?25l[30;138H~@k[24;1H[30;138H   [24;1H[1;29r[29;1H
+[1;30r[29;1H7fffffffe920 -> &before[0][34m^M[m[30;148H[K[30;148H112,1[9C55%[24;1H[?25h[?25l[30;138H~@k[24;1H[30;138H   [24;1H[1;29r[29;1H
+[1;30r[29;1H7fffffffe924 -> &before[1][34m^M[m[30;148H[K[30;148H113,1[9C56%[24;1H[?25h[?25l[30;138H~@k[24;1H[30;138H   [24;1H[1;29r[29;1H
+[1;30r[29;1H7fffffffe928 -> &before[2][34m^M[m[30;148H[K[30;148H114,1[9C56%[24;1H[?25h[?25l[30;138H~@k[24;1H[30;138H   [24;1H[1;29r[29;1H
+[1;30r[29;1H7fffffffe92c -> &before[3][34m^M[m[30;148H[K[30;148H115,1[9C57%[24;1H[?25h[?25l[30;138H~@k[24;1H[30;138H   [24;1H[1;29r[29;1H
+[1;30r[29;1H7fffffffe91c -> &i[34m^M[m[30;148H[K[30;148H116,1[9C58%[24;1H[?25h[?25l[30;138H~@k[24;1H[30;138H   [24;1H[1;29r[29;1H
+[1;30r[29;1H7fffffffe918 -> &index[34m^M[m[30;148H[K[30;148H117,1[9C58%[24;1H[?25h[?25l[30;138H~@k[24;1H[30;138H   [24;1H[1;29r[29;1H
+[1;30r[29;1H[34m^M[m[30;148H[K[30;148H118,1[9C59%[24;1H[?25h[?25l[30;138H~@k[24;1H[30;138H   [24;1H[1;29r[29;1H
+[1;30r[29;1HInitial values:[34m^M[m[30;148H[K[30;148H119,1[9C60%[24;1H[?25h[?25l[30;138H~@k[24;1H[30;138H   [24;1H[1;29r[29;1H
+[1;30r[29;1Hi = 0[34m^M[m[30;148H[K[30;148H120,1[9C60%[24;1H[?25h[?25l[1;29r[29;1H
+[1;30r[29;1Hbefore = {10, 10, 10, 10}[34m^M[m[30;148H[K[30;148H121,1[9C61%[24;1H[?25h[?25l[1;29r[29;1H
+[1;30r[29;1Ha = {0, 0, 0, 0}[34m^M[m[30;148H[K[30;148H122,1[9C62%[24;1H[?25h[?25l[1;29r[29;1H
+[1;30r[29;1Hafter = {10, 10, 10, 10}[34m^M[m[30;148H[K[30;148H123,1[9C62%[24;1H[?25h[?25l[1;29r[29;1H
+[1;30r[29;1H[34m^M[m[30;148H[K[30;148H124,1[9C63%[24;1H[?25h[?25l[30;138H~@k[24;1H[30;138H   [24;1H[1;29r[29;1H
+[1;30r[29;1H[34m^M[m[30;148H[K[30;148H125,1[9C63%[24;1H[?25h[?25l[1;29r[29;1H
+[1;30r[29;1HBreakpoint 1, main () at overflow.c:36[34m^M[m[30;148H[K[30;148H126,1[9C64%[24;1H[?25h[?25l[1;29r[29;1H
+[1;30r[29;1H36[10Cfor (i = 0; i < OVERFLOW; i++) {[34m^M[m[30;148H[K[30;148H127,1[9C65%[24;1H[?25h[?25l[1;29r[29;1H
+[1;30r[29;1H(gdb) print[34m^H^[[m[K[34m^H^[[m[K[34m^H^[[m[K[34m^H^[[m[K[34m^H^[[m[Kprint &(after[0])[34m^H^H^H^[[m[C[34m^[[m[C[34m^[[m[C[34m^M[m[30;148H[K[30;148H128,1[9C65%[24;1H[?25h[?25l[30;138H~@k[24;1H[30;138H   [24;1H[1;29r[29;1H
+[1;30r[29;1H$1 = (int *) 0x7fffffffe940[34m^M[m[30;148H[K[30;148H129,1[9C66%[24;1H[?25h[?25l[1;29r[29;1H
+[1;30r[29;1H(gdb) print &(after[0])[34m^H^H^H^[[m[1P])[34m^H^H^H^[[m[1P])[34m^H^H^H^[[m[1P])[34m^H^H^H^[[m[1P])[34m^H^H^H^[[m[1P])[34m^H^H^H^[[m[1P])[34m^H^H[m[])[34m^H^H[m4])[34m^H^H^[[m[C[34m^[[m[C[34m^M[m[30;148H[K[30;148H130,1[9C67%[24;1H[?25h[?25l[30;138H~@k[24;1H[30;138H   [24;1H[1;29r[29;1H
+[1;30r[29;1H$2 = (int *) 0x7fffffffe940[34m^M[m[30;148H[K[30;148H131,1[9C67%[24;1H[?25h[?25l[30;138H~@k[24;1H[30;138H   [24;1H[1;29r[29;1H
+[1;30r[29;1H(gdb) conin[34m^H^[[m[K[34m^H^[[m[Ktinue[34m^M[m[30;148H[K[30;148H132,1[9C68%[24;1H[?25h[?25l[30;138H~@k[24;1H[30;138H   [24;1H[1;29r[29;1H
+[1;30r[24;1H[106m([mgdb[106m)[m[29;1HContinuing.[34m^M[m[30;148H[K[30;148H133,1[9C68%[24;1H[?25h[?25l[1;29r[29;1H
+[1;30r[23;1H(gdb)[29;1Hi = 0[34m^M[m[30;148H[K[30;148H134,1[9C69%[24;1H[?25h[?25l[30;138H~@k[24;1H[30;138H   [24;1H[1;29r[29;1H
+[1;30r[24;1H[106m([mgdb[106m)[m[29;1Hbefore = {10, 10, 10, 10}[34m^M[m[30;148H[K[30;148H135,1[9C70%[24;1H[?25h[?25l[30;138H~@k[24;1H[30;138H   [24;1H[1;29r[29;1H
+[1;30r[23;1H(gdb)[29;1Ha = {0, 0, 0, 0}[34m^M[m[30;148H[K[30;148H136,1[9C70%[24;1H[?25h[?25l[30;138H~@k[24;1H[30;138H   [24;1H[1;29r[29;1H
+[1;30r[24;1H[106m([mgdb[106m)[m[29;1Hafter = {10, 10, 10, 10}[34m^M[m[30;148H[K[30;148H137,1[9C71%[24;1H[?25h[?25l[30;138H~@k[24;1H[30;138H   [24;1H[1;29r[29;1H
+[1;30r[23;1H(gdb)[29;1Hi = 1[34m^M[m[30;148H[K[30;148H138,1[9C72%[24;1H[?25h[?25l[30;138H~@k[24;1H[30;138H   [24;1H[1;29r[29;1H
+[1;30r[29;1Hbefore = {10, 10, 10, 10}[34m^M[m[30;148H[K[30;148H139,1[9C72%[24;1H[?25h[?25l[30;138H~@k[24;1H[30;138H   [24;1H[1;29r[29;1H
+[1;30r[29;1Ha = {0, 10, 0, 0}[34m^M[m[30;148H[K[30;148H140,1[9C73%[24;1H[?25h[?25l[1;29r[29;1H
+[1;30r[29;1Hafter = {10, 10, 10, 10}[34m^M[m[30;148H[K[30;148H141,1[9C74%[24;1H[?25h[?25l[1;29r[29;1H
+[1;30r[29;1Hi = 2[34m^M[m[30;148H[K[30;148H142,1[9C74%[24;1H[?25h[?25l[1;29r[29;1H
+[1;30r[29;1Hbefore = {10, 10, 10, 10}[34m^M[m[30;148H[K[30;148H143,1[9C75%[24;1H[?25h[?25l[1;29r[29;1H
+[1;30r[29;1Ha = {0, 10, 20, 0}[34m^M[m[30;148H[K[30;148H144,1[9C75%[24;1H[?25h[?25l[1;29r[29;1H
+[1;30r[29;1Hafter = {10, 10, 10, 10}[34m^M[m[30;148H[K[30;148H145,1[9C76%[24;1H[?25h[?25l[1;29r[29;1H
+[1;30r[29;1Hi = 3[34m^M[m[30;148H[K[30;148H146,1[9C77%[24;1H[?25h[?25l[1;29r[29;1H
+[1;30r[29;1Hbefore = {10, 10, 10, 10}[34m^M[m[30;148H[K[30;148H147,1[9C77%[24;1H[?25h[?25l[1;29r[29;1H
+[1;30r[29;1Ha = {0, 10, 20, 30}[34m^M[m[30;148H[K[30;148H148,1[9C78%[24;1H[?25h[?25l[1;29r[29;1H
+[1;30r[29;1Hafter = {10, 10, 10, 10}[34m^M[m[30;148H[K[30;148H149,1[9C79%[24;1H[?25h[?25l[1;29r[29;1H
+[1;30r[29;1H[34m^M[m[30;148H[K[30;148H150,1[9C79%[24;1H[?25h[?25l[1;29r[29;1H
+[1;30r[29;1HBreakpoint 3, main () at overflow.c:44[34m^M[m[30;148H[K[30;148H151,1[9C80%[24;1H[?25h[?25l[1;29r[29;1H
+[1;30r[29;1H44[10Creturn 0;[34m^M[m[30;148H[K[30;148H152,1[9C81%[24;1H[?25h[?25l[1;29r[29;1H
+[1;30r[29;1H(gdb) cotin[34m^H^[[m[K[34m^H^[[m[K[34m^H^[[m[K[34m^H^[[m[K[34m^H^[[m[Knes[34m^H^[[m[Kxt[34m^M[m[30;148H[K[30;148H153,1[9C81%[24;1H[?25h[?25l[1;29r[29;1H
+[1;30r[29;1H45      }[34m^M[m[30;148H[K[30;148H154,1[9C82%[24;1H[?25h[?25l[1;29r[29;1H
+[1;30r[29;1H(gdb) [34m^M[m[30;148H[K[30;148H155,1[9C82%[24;1H[?25h[?25l[1;29r[29;1H
+[1;30r[29;1H__libc_start_main (main=0x55555555473a <main>, argc=1, argv=0x7fffffffea48, init=<optimized out>, fini=<optimized out>, rtld_fini=<optimized out>, [34m^M[m[30;148H[K[30;148H156,1[9C83%[24;1H[?25h[?25l[1;29r[29;1H
+[1;30r[29;5Hstack_end=0x7fffffffea38) at ../csu/libc-start.c:344[34m^M[m[30;148H[K[30;148H157,1[9C84%[24;1H[?25h[?25l[30;138H~@k[24;1H[30;138H   [24;1H[1;29r[29;1H
+[1;30r[24;1H[106m([mgdb[106m)[m[29;1H344     ../csu/libc-start.c: No such file or directory.[34m^M[m[30;148H[K[30;148H158,1[9C84%[24;1H[?25h[?25l[30;138H~@k[24;1H[30;138H   [24;1H[1;29r[29;1H
+[1;30r[23;1H(gdb)[29;1H(gdb) cotin[34m^H^[[m[K[34m^H^[[m[K[34m^H^[[m[Kntinue[34m^M[m[30;148H[K[30;148H159,1[9C85%[24;1H[?25h[?25l[1;29r[29;1H
+[1;30r[24;1H[106m([mgdb[106m)[m[29;1HContinuing.[34m^M[m[30;148H[K[30;148H160,1[9C86%[24;1H[?25h[?25l[1;29r[29;1H
+[1;30r[23;1H(gdb)[29;1H[Inferior 1 (process 29943) exited normally][34m^M[m[30;148H[K[30;148H161,1[9C86%[24;1H[?25h[?25l[1;29r[29;1H
+[1;30r[29;1H(gdb) backtrace[34m^M[m[30;148H[K[30;148H162,1[9C87%[24;1H[?25h[?25l[1;29r[29;1H
+[1;30r[29;1HNo stack.[34m^M[m[30;148H[K[30;148H163,1[9C87%[24;1H[?25h[?25l[1;29r[29;1H
+[1;30r[24;1H[106m([mgdb[106m)[m[29;1H(gdb) quit[34m^M[m[30;148H[K[30;148H164,1[9C88%[24;1H[?25h[?25l[1;29r[29;1H
+[1;30r[23;1H(gdb)[29;1H[34m^[[m]0;vassilye@wolf:/h/u6/c9/01/vassilye/csc209/vassilye/lab6[34m^G[mwolf:~/csc209/vassilye/lab6$ v[34m^H^[[m[Kexit script[34m^H^[[m[K[34m^H^[[m[K[34m^H^[[m[K[34m^H^[[m[K[34m^H^[[m[K[34m^H^[[m[K[34m^M[m[30;148H[K[30;148H165,1[9C89%[24;1H[?25h[?25l[1;29r[29;1H
+[1;30r[24;1H[106m[[42C][m[29;1Hexit[34m^M[m[30;148H[K[30;148H166,1[9C89%[24;1H[?25h[?25l[1;29r[29;1H
+[1;30r[23;1H[[42C]
+[106m([mgdb[106m)[m[29;1HScript done, file is typescript[34m^M[m[30;148H[K[30;148H167,1[9C90%[24;1H[?25h[?25l[1;29r[29;1H
+[1;30r[23;1H(gdb)[29;1H[34m^[[m]0;vassilye@wolf:/h/u6/c9/01/vassilye/csc209/vassilye/lab6[34m^G[mwolf:~/csc209/vassilye/lab6$ vi overflow.c[34m^M[m[30;148H[K[30;148H168,1[9C91%[24;1H[?25h[?25l[30;138H~@k[24;1H[30;138H   [22;1H[1;29r[1;1H[3M[1;30r[22;1H[106m([mgdb[106m)[m[27;1H[34m^[[m[?2004h[34m^[[m[?1049h[34m^[[m[22;0;0t[34m^[[m[?1h[34m^[[m=[34m^[[m[?2004h[34m^[[m[1;30r[34m^[[m[?12h[34m^[[m[?12l[34m^[[m[27m[34m^[[m[23m[34m^[[m[29m[34m^[[m[m[34m^[[m[H[34m^[[m[2J[34m^[[m[?25l[34m^[[m[30;1H"overflow.c" 45L, 1423C[34m^[[m[2;1H▽[27;146H[34m^[[m[6n[34m^[[m[2;1H  [34m^[[m[1;11[28;1HH[34m^[[m[>c[34m^[[m]10;?[34m^G^[[m]11;?[34m^G^[[m[1;5H[34m^[[m[38;5;130mfor[34m^[[m[m (index = [34m^[[m[31m0[34m^[[m[m; index < SIZE; index++) {[34m^[[m[2;9Hprintf([34m^[[m[31m"[34m^[[m[m[34m^[[m[35m%lx[34m^[[m[m[34m^[[m[31m -> &a[[34m^[[m[m[34m^[[m[35m%d[34m^[[m[m[34m^^[29;1H[[m[31m][34m^[[m[m[34m^[[m[35m\n[34m^[[m[m[34m^[[m[31m"[34m^[[m[m, ([34m^[[m[32munsigned[34m^[[m[m [34m^[[m[32mlong[34m^[[m[m) &a[index], index);[34m^M[m[30;148H[K[30;148H169,1[9C91%[22;1H[?25h[?25l(gdb)[30;149H70[23;1H[?25h[?25l[30;150H1[24;1H[?25h[?25l[1;29r[29;1H
+[1;30r[29;5H}[34m^M[m[30;148H[K[30;148H172,1[9C92%[24;1H[?25h[?25l[1;29r[1;1H[2M[1;30r[28;5H[34m^[[m[38;5;130mfor[34m^[[m[m (index = [34m^[[m[31m0[34m^[[m[m; index < SIZE; index++) {[34m^[[m[5;9Hprintf([34m^[[m[31m"[34m^[[m[m[34m^[[m[35m%lx[34m^[[m[m[34m^[[m[31m -> &before[[34m^[[m[m[34m^[[m[35m%d[34m^[[m[m[34m^[[m[31m][34m^[[m[m[34m^[[m[35m\n[34m^[[m[mm[29;1H[34m^[[m[31m"[34m^[[m[m, ([34m^[[m[32munsigned[34m^[[m[m [34m^[[m[32mlong[34m^[[m[m) &before[index], index);[34m^M[m[30;148H[K[30;148H173,1[9C93%[23;1H[?25h[?25l[1;29r[1;1H[2M[1;30r[28;5H}[34m^M[m
+    printf([34m^[[m[31m"[34m^[[m[m[34m^[[m[35m%lx[34m^[[m[m[34m^[[m[31m -> &i[34m^[[m[m[34m^[[m[35m\n[34m^[[m[m[34m^[[m[31m"[34m^[[m[m, ([34m^[[m[32munsigned[34m^[[m[m [34m^[[m[32mlong[34m^[[m[m)&i);[34m^M[m[30;148H[K[30;148H174,1[9C94%[22;1H[?25h[?25l[1;29r[29;1H
+[1;30r[29;5Hprintf([34m^[[m[31m"[34m^[[m[m[34m^[[m[35m%lx[34m^[[m[m[34m^[[m[31m -> &index[34m^[[m[m[34m^[[m[35m\n[34m^[[m[m[34m^[[m[31m"[34m^[[m[m, ([34m^[[m[32munsigned[34m^[[m[m [34m^[[m[32mlong[34m^[[m[m)&index);[34m^M[m[30;148H[K[30;148H175,1[9C95%[24;1H[?25h[?25l[1;29r[1;1H[2M[1;30r[28;5Hprintf([34m^[[m[31m"[34m^[[m[m[34m^[[m[35m\n[34m^[[m[m[34m^[[m[31m"[34m^[[m[m);[34m^[[m[12;5Hprintf([34m^[[m[31m"Initial values:[34m^[[m[m[34m^[[m[35m\n[34m^[[m[m[34m^[[m[31m"[34m^[[m[m);[34m^M[m
+    printf([34m^[[m[31m"i = [34m^[[m[m[34m^[[m[35m%d\n[34m^[[m[m[34m^[[m[31m"[34m^[[m[m, i);[34m^M[m[30;148H[K[30;148H176,1[9C96%[23;1H[?25h[?25l[1;29r[1;1H[2M[1;30r[28;5Hprintf([34m^[[m[31m"before = {[34m^[[m[m[34m^[[m[35m%d[34m^[[m[m[34m^[[m[31m, [34m^[[m[m[34m^[[m[35m%d[34m^[[m[m[34m^[[m[31m, [34m^[[m[m[34m^[[m[35m%d[34m^[[m[m[34m^[[m[31m, [34m^[[m[m[34m^[[m[35m%d[34m^[[m[m[34m^[[m[31m}[34m^[[m[m[34m^[[m[35m\n[34m^[[m[m[34m^[[m[31m"[34m^[[m[m, before[[34m^[[m[31mm[29;1H0[34m^[[m[m], before[[34m^[[m[31m1[34m^[[m[m], before[[34m^[[m[31m2[34m^[[m[m], before[[34m^[[m[31m3[34m^[[m[m]);[34m^M[m[30;148H[K[30;148H177,1[9C96%[23;1H[?25h[?25l[30;138H~@k[23;1H[30;138H   [24;1H[30;150H8[24;1H[?25h[?25l[30;138H~@k[24;1H[30;138H   [23;1H[1;29r[1;1H[2M[1;30r[28;5Hprintf([34m^[[m[31m"a = {[34m^[[m[m[34m^[[m[35m%d[34m^[[m[m[34m^[[m[31m, [34m^[[m[m[34m^[[m[35m%d[34m^[[m[m[34m^[[m[31m, [34m^[[m[m[34m^[[m[35m%d[34m^[[m[m[34m^[[m[31m, [34m^[[m[m[34m^[[m[35m%d[34m^[[m[m[34m^[[m[31m}[34m^[[m[m[34m^[[m[35m\n[34m^[[m[m[34m^[[m[31m"[34m^[[m[m, a[[34m^[[m[31m0[34m^[[m[m], a[[[29;1H[34m^[[m[31m1[34m^[[m[m], a[[34m^[[m[31m2[34m^[[m[m], a[[34m^[[m[31m3[34m^[[m[m]);[34m^M[m[30;148H[K[30;148H179,1[9C97%[23;1H[?25h[?25l[30;138H~@k[23;1H[30;138H   [24;1H[30;149H80[24;1H[?25h[?25l[30;138H~@k[24;1H[30;138H   [23;1H[1;29r[1;1H[2M[1;30r[28;5Hprintf([34m^[[m[31m"after = {[34m^[[m[m[34m^[[m[35m%d[34m^[[m[m[34m^[[m[31m, [34m^[[m[m[34m^[[m[35m%d[34m^[[m[m[34m^[[m[31m, [34m^[[m[m[34m^[[m[35m%d[34m^[[m[m[34m^[[m[31m, [34m^[[m[m[34m^[[m[35m%d[34m^[[m[m[34m^[[m[31m}[34m^[[m[m[34m^[[m[35m\n[34m^[[m[m[34m^[[m[31m"[34m^[[m[m, after[[34m^[[m[31m0[34m^^[29;1H[[m[m], after[[34m^[[m[31m1[34m^[[m[m], after[[34m^[[m[31m2[34m^[[m[m], after[[34m^[[m[31m3[34m^[[m[m]);[34m^M[m[30;148H[K[30;148H181,1[9C98%[23;1H[?25h[?25l[30;138H~@k[23;1H[30;138H   [18;1H[1;29r[1;1H[6M[1;30r[24;5Hprintf([34m^[[m[31m"[34m^[[m[m[34m^[[m[35m\n[34m^[[m[m[34m^[[m[31m"[34m^[[m[m);[34m^[[m[20;5H[34m^[[m[38;5;130mfor[34m^[[m[m (i = [34m^[[m[31m0[34m^[[m[m; i < OVERFLOW; i++) {[34m^[[m[21;9Ha[i] = i * [34m^[[m[31m10[34m^[[m[m;[34m^[[m[22;9Hprintf([34m^[[m[311[25;1Hm"i = [34m^[[m[m[34m^[[m[35m%d\n[34m^[[m[m[34m^[[m[31m"[34m^[[m[m, i);[34m^[[m[23;9Hprintf([34m^[[m[31m"before = {[34m^[[m[m[34m^[[m[35m%d[34m^[[m[m[34m^[[m[31m, [34m^[[m[m[34m^[[m[35m%d[34m^[[m[m[34m^[[m[31m, [34m^[[m[m[34m^[[m[35m%d[34m^[[m[m[34m^[[m[31m, [34m^[[m[m[34m^[[m[35m%d[34m^[[m[m[34m^[[m[311[26;1Hm}[34m^[[m[m[34m^[[m[35m\n[34m^[[m[m[34m^[[m[31m"[34m^[[m[m, before[[34m^[[m[31m0[34m^[[m[m], before[[34m^[[m[31m1[34m^[[m[m], before[[34m^[[m[31m2[34m^[[m[m], before[[34m^[[m[31m3[34m^[[m[m]);[34m^[[m[24;9Hprintf([34m^[[m[31m"a = {[34m^[[m[m[34m^[[m[35m%d[34m^[[m[m[34m^[[m[31m,,[27;1H [34m^[[m[m[34m^[[m[35m%d[34m^[[m[m[34m^[[m[31m, [34m^[[m[m[34m^[[m[35m%d[34m^[[m[m[34m^[[m[31m, [34m^[[m[m[34m^[[m[35m%d[34m^[[m[m[34m^[[m[31m}[34m^[[m[m[34m^[[m[35m\n[34m^[[m[m[34m^[[m[31m"[34m^[[m[m, a[[34m^[[m[31m0[34m^[[m[m], a[[34m^[[m[31m1[34m^[[m[m], a[[34m^[[m[31m2[34m^[[m[m], a[[34m^[[m[31m3[34m^[[m[m]);;[28;1H[34m^[[m[25;9Hprintf([34m^[[m[31m"after = {[34m^[[m[m[34m^[[m[35m%d[34m^[[m[m[34m^[[m[31m, [34m^[[m[m[34m^[[m[35m%d[34m^[[m[m[34m^[[m[31m, [34m^[[m[m[34m^[[m[35m%d[34m^[[m[m[34m^[[m[31m, [34m^[[m[m[34m^[[m[35m%d[34m^[[m[m[34m^[[m[31m}[34m^[[m[m[34m^[[m[35m\n[34m^[[m[m[34m^[[m[31m"[34m^[[m[m, after[[34m^[[m[33[29;1H1m0[34m^[[m[m], after[[34m^[[m[31m1[34m^[[m[m], after[[34m^[[m[31m2[34m^[[m[m], after[[34m^[[m[31m3[34m^[[m[m]);[34m^M[m[30;148H[K[30;148H182,1[9C98%[18;1H[?25h[?25l[30;138H~@k[18;1H[30;138H   [20;1H[30;150H3[20;1H[?25h[?25l[30;138H~@k[20;1H[30;138H   [22;1H[30;150H4[22;1H[?25h[?25l[30;138H~@k[22;1H[30;138H   [3;1H[1;29r[1;1H[21M[1;30r[9;5H}[34m^[[m[28;5H[34m^[[m[38;5;130mreturn[34m^[[m[m [34m^[[m[31m0[34m^[[m[m;[34m^M[m
+}[34m^[[m[30;148H45,1[34m^[[m[10CBot[34m^[[m[29;1H[34m^[[m[?25h[34m^[[m[?25l[34m^[[m[30;138H~@k[34m^[[m[29;1H[34m^[[m[30;138H   [34m^[[m[28;1H[34m^[[m[30;149H4[34m^[[m[28;1H[34m^[[m[?25h[34m^[[m[?25l[34m^[[m[30;138H~@k[34m^[[m[28;1H[34m^[[m[30;138H   [34m^[[m[27;1H[34m^[[[m[11;1H[30;149H3,0-1[34m^[[m[27;1H[34m^[[m[?25h[34m^[[m[?25l[34m^[[m[30;138H~@k[34m^[[m[27;1H[34m^[[m[30;138H   [34m^[[m[26;1H[34m^[[m[30;149H2,1  [34m^[[m[26;1H[34m^[[m[?25h[34m^[[m[?25l[34m^[[m[30;138H~@k[34m^[[m[26;1H[34m^[[m[30;138H   [34m^[[m[25;1H[34m^[[m[30;1499[12;1HH1[34m^[[m[25;1H[34m^[[m[?25h[34m^[[m[?25l[34m^[[m[30;138H~@k[34m^[[m[25;1H[34m^[[m[30;138H   [34m^[[m[24;1H[34m^[[m[30;149H0[34m^[[m[24;1H[34m^[[m[?25h[34m^[[m[?25l[34m^[[m[30;138H~@k[34m^[[m[24;1H[34m^[[m[30;138H   [34m^[[m[23;1H[34m^[[m[30;148H39[34m^[[m[23;1H[34m^[[m[??[13;1H25h[34m^[[m[?25l[34m^[[m[30;138H~@k[34m^[[m[23;1H[34m^[[m[30;138H   [34m^[[m[22;1H[34m^[[m[30;149H8[34m^[[m[22;1H[34m^[[m[?25h[34m^[[m[?25l[34m^[[m[30;138H~@k[34m^[[m[22;1H[34m^[[m[30;138H   [34m^[[m[21;1H[34m^[[m[30;149H7[34m^[[m[21;1H[34m^[[m[?25h[34m^[[m[?25l[34m^[[m[300[14;1H;138H~@k[34m^[[m[21;1H[34m^[[m[30;138H   [34m^[[m[20;1H[34m^[[m[30;149H6[34m^[[m[20;1H[34m^[[m[?25h[34m^[[m[?25l[34m^[[m[30;138H~@k[34m^[[m[20;1H[34m^[[m[30;138H   [34m^[[m[19;1H[34m^[[m[30;149H5,0-1[34m^[[m[19;1H[34m^[[m[?25h[34m^[[m[?25l[34m^[[m[30;138H~@k[34m^[[m[[[15;1H19;1H[34m^[[m[30;138H   [34m^[[m[18;1H[34m^[[m[30;149H4[34m^[[m[18;1H[34m^[[m[?25h[34m^[[m[?25l[34m^[[m[30;138H~@k[34m^[[m[18;1H[34m^[[m[30;138H   [34m^[[m[17;1H[34m^[[m[30;149H3,1  [34m^[[m[17;1H[34m^[[m[?25h[34m^[[m[?25l[34m^[[m[30;138H~@k[34m^[[m[17;1H[34m^[[m[30;;[16;1H138H   [34m^[[m[16;1H[34m^[[m[30;149H2[34m^[[m[16;1H[34m^[[m[?25h[34m^[[m[?25l[34m^[[m[30;138H~@k[34m^[[m[16;1H[34m^[[m[30;138H   [34m^[[m[15;1H[34m^[[m[30;149H1[34m^[[m[15;1H[34m^[[m[?25h[34m^[[m[?25l[34m^[[m[30;138H~@k[34m^[[m[15;1H[34m^[[m[30;138H   [34m^[[m[14;1HH[17;1H[34m^[[m[30;149H0[34m^[[m[14;1H[34m^[[m[?25h[34m^[[m[?25l[34m^[[m[30;138H~@k[34m^[[m[14;1H[34m^[[m[30;138H   [34m^[[m[13;1H[34m^[[m[30;148H29[34m^[[m[13;1H[34m^[[m[?25h[34m^[[m[?25l[34m^[[m[30;138H~@k[34m^[[m[13;1H[34m^[[m[30;138H   [34m^[[m[12;1H[34m^[[m[30;149H8[34m^[[m[[[18;1H12;1H[34m^[[m[?25h[34m^[[m[?25l[34m^[[m[30;138H~@k[34m^[[m[12;1H[34m^[[m[30;138H   [34m^[[m[11;1H[34m^[[m[30;149H7,0-1[34m^[[m[11;1H[34m^[[m[?25h[34m^[[m[?25l[34m^[[m[30;138H~@k[34m^[[m[11;1H[34m^[[m[30;138H   [34m^[[m[10;1H[34m^[[m[30;149H6[34m^[[m[10;1H[34m^[[m[?255[19;1Hh[34m^[[m[?25l[34m^[[m[30;138H~@k[34m^[[m[10;1H[34m^[[m[30;138H   [34m^[[m[9;1H[34m^[[m[30;149H5,1  [34m^[[m[9;1H[34m^[[m[?25h[34m^[[m[?25l[34m^[[m[30;138H~@k[34m^[[m[9;1H[34m^[[m[30;138H   [34m^[[m[8;1H[34m^[[m[30;149H4[34m^[[m[8;1H[34m^[[m[?25h[34m^[[m[?25l[34m^[[m[30;133[20;1H8H~@k[34m^[[m[8;1H[34m^[[m[30;138H   [34m^[[m[7;1H[34m^[[m[30;149H3[34m^[[m[7;1H[34m^[[m[?25h[34m^[[m[?25l[34m^[[m[30;138H~@k[34m^[[m[7;1H[34m^[[m[30;138H   [34m^[[m[6;1H[34m^[[m[30;149H2[34m^[[m[6;1H[34m^[[m[?25h[34m^[[m[?25l[34m^[[m[30;138H~@k[34m^[[m[6;1H[34m^[[m[30;1388[21;1HH   [34m^[[m[6;1H[34m^[[m[1;29r[34m^[[m[1;1H[34m^[[m[L[34m^[[m[1;30r[34m^[[m[1;5H}[34m^[[m[30;1H[34m^[[m[K[34m^[[m[30;148H21,1[34m^[[m[10C93%[34m^[[m[6;1H[34m^[[m[?25h[34m^[[m[?25l[34m^[[m[1;29r[34m^[[m[1;1H[34m^[[m[L[34m^[[m[1;30r[34m^[[m[1;9Hprintf([34m^[[m[31m"[34m^[[m[m[34m^[[m[35m%lx[34m^[[[m[22;1H[m[34m^[[m[31m -> &after[[34m^[[m[m[34m^[[m[35m%d[34m^[[m[m[34m^[[m[31m][34m^[[m[m[34m^[[m[35m\n[34m^[[m[m[34m^[[m[31m"[34m^[[m[m, ([34m^[[m[32munsigned[34m^[[m[m [34m^[[m[32mlong[34m^[[m[m) &after[index], index);[34m^[[m[30;148H[34m^[[m[K[34m^[[m[30;148H20,1[34m^[[m[10C877[23;1H%[34m^[[m[6;1H[34m^[[m[?25h[34m^[[m[?25l[34m^[[m[30;138H~@k[34m^[[m[6;1H[34m^[[m[30;138H   [34m^[[m[6;1H[34m^[[m[1;29r[34m^[[m[1;1H[34m^[[m[L[34m^[[m[1;30r[34m^[[m[1;5H[34m^[[m[38;5;130mfor[34m^[[m[m (index = [34m^[[m[31m0[34m^[[m[m; index < SIZE; index++) {[34m^[[m[[[24;1H30;148H[34m^[[m[K[34m^[[m[30;148H19,1[34m^[[m[10C81%[34m^[[m[6;1H[34m^[[m[?25h[34m^[[m[?25l[34m^[[m[30;138H~@k[34m^[[m[6;1H[34m^[[m[30;138H   [34m^[[m[6;1H[34m^[[m[1;29r[34m^[[m[1;1H[34m^[[m[L[34m^[[m[1;30r[34m^[[m[1;5Hprintf([34m^[[m[31m"Address of the variabll[25;1Hes:[34m^[[m[m[34m^[[m[35m\n[34m^[[m[m[34m^[[m[31m"[34m^[[m[m);[34m^[[m[30;148H[34m^[[m[K[34m^[[m[30;148H18,1[34m^[[m[10C75%[34m^[[m[6;1H[34m^[[m[?25h[34m^[[m[?25l[34m^[[m[1;29r[34m^[[m[1;1H[34m^[[m[L[34m^[[m[1;30r[34m^[[m[30;148H[34m^[[m[K[34m^[[m[30;148H17,1[34m^[[m[10C68%[34m^[[m[6;1H[34m^[[m[??[26;1H25h[34m^[[m[?25l[34m^[[m[30;138H~@k[34m^[[m[6;1H[34m^[[m[30;138H   [34m^[[m[6;1H[34m^[[m[1;29r[34m^[[m[1;1H[34m^[[m[L[34m^[[m[1;30r[34m^[[m[1;5H[34m^[[m[32mint[34m^[[m[m after[SIZE] = {[34m^[[m[31m10[34m^[[m[m, [34m^[[m[31m10[34m^[[m[m, [34m^[[m[31m10[34m^[[m[m, [34m^[[m[31m10[34m^[[[m[27;1H[m};[34m^[[m[30;148H[34m^[[m[K[34m^[[m[30;148H16,1[34m^[[m[10C62%[34m^[[m[6;1H[34m^[[m[?25h[34m^[[m[?25l[34m^[[m[1;29r[34m^[[m[1;1H[34m^[[m[L[34m^[[m[1;30r[34m^[[m[1;5H[34m^[[m[32mint[34m^[[m[m a[SIZE] = {[34m^[[m[31m0[34m^[[m[m, [34m^[[m[31m0[34m^[[m[m, [34m^[[m[31m0[34m^[[m[m, [34m^[[m[311[28;1Hm0[34m^[[m[m};[34m^[[m[30;148H[34m^[[m[K[34m^[[m[30;148H15,1[34m^[[m[10C56%[34m^[[m[6;1H[34m^[[m[?25h[34m^[[m[?25l[34m^[[m[30;138H~@k[34m^[[m[6;1H[34m^[[m[30;138H   [34m^[[m[6;1H[34m^[[m[1;29r[34m^[[m[1;1H[34m^[[m[L[34m^[[m[1;30r[34m^[[m[1;5H[34m^[[m[32mint[34m^[[m[m before[SIZEE[29;1H] = {[34m^[[m[31m10[34m^[[m[m, [34m^[[m[31m10[34m^[[m[m, [34m^[[m[31m10[34m^[[m[m, [34m^[[m[31m10[34m^[[m[m};[34m^[[m[30;148H[34m^[[m[K[34m^[[m[30;148H14,1[34m^[[m[10C50%[34m^[[m[6;1H[34m^[[m[?25h[34m^[[m[?25l[34m^[[m[30;138H~@k[34m^[[m[6;1H[34m^[[m[30;138H   [34m^[[m[6;1H[34m^[[m[1;2[29;1H[94m@@@                                                                                                                                                                  [1;29r[m[1;1H[4L[1;30r[1;5Hprintf([34m^[[m[31m"before = {[34m^[[m[m[34m^[[m[35m%d[34m^[[m[m[34m^[[m[31m, [34m^[[m[m[34m^[[m[35m%d[34m^[[m[m[34m^[[m[31m, [34m^[[m[m[34m^[[m[35m%d[34m^[[m[m[34m^[[m[31m, [34m^[[m[m[34m^[[m[35m%d[34m^[[m[m[34m^[[m[31m}[34m^[[m[m[34m^[[m[35m\n[34m^[[m[m[34m^[[m[31m"[34m^[[m[m, before[[34m^[[m[31mm[2;1H0[34m^[[m[m], before[[34m^[[m[31m1[34m^[[m[m], before[[34m^[[m[31m2[34m^[[m[m], before[[34m^[[m[31m3[34m^[[m[m]);[34m^M[m
+    printf([34m^[[m[31m"a = {[34m^[[m[m[34m^[[m[35m%d[34m^[[m[m[34m^[[m[31m, [34m^[[m[m[34m^[[m[35m%d[34m^[[m[m[34m^[[m[31m, [34m^[[m[m[34m^[[m[35m%d[34m^[[m[m[34m^[[m[31m, [34m^[[m[m[34m^[[m[35m%d[34m^[[m[m[34m^[[m[31m}[34m^[[m[m[34m^[[m[35m\n[34m^[[m[m[34m^[[m[31m"[34m^[[m[m, a[[34m^[[m[31m0[34m^[[m[m], a[[[4;1H[34m^[[m[31m1[34m^[[m[m], a[[34m^[[m[31m2[34m^[[m[m], a[[34m^[[m[31m3[34m^[[m[m]);[34m^M[m[29;1H[94m@@@                                                                                                                                                                  [m[30;148H[K[30;148H185,1[9C99%[7;1H[?25h[?25l[30;150H6[13;1H[?25h[?25l[1;29r[1;1H[13M[1;30r[16;1Hes:[34m^[[m[m[34m^[[m[35m\n[34m^[[m[m[34m^[[m[31m"[34m^[[m[m);[34m^[[m[30;148H[34m^[[m[K[34m^[[m[30;148H18,1[34m^[[m[10C75%[34m^[[m[6;1H[34m^[[m[?25h[34m^[[m[?25l[34m^[[m[1;29r[34m^[[m[1;1H[34m^[[m[L[34m^[[m[1;30r[34m^[[m[30;148H[34m^[[m[K[34m^[[m[30;148H17,1[34m^[[m[10C68%[34m^[[m[6;1H[34m^[[m[??[17;1H25h[34m^[[m[?25l[34m^[[m[30;138H~@k[34m^[[m[6;1H[34m^[[m[30;138H   [34m^[[m[6;1H[34m^[[m[1;29r[34m^[[m[1;1H[34m^[[m[L[34m^[[m[1;30r[34m^[[m[1;5H[34m^[[m[32mint[34m^[[m[m after[SIZE] = {[34m^[[m[31m10[34m^[[m[m, [34m^[[m[31m10[34m^[[m[m, [34m^[[m[31m10[34m^[[m[m, [34m^[[m[31m10[34m^[[[m[18;1H[m};[34m^[[m[30;148H[34m^[[m[K[34m^[[m[30;148H16,1[34m^[[m[10C62%[34m^[[m[6;1H[34m^[[m[?25h[34m^[[m[?25l[34m^[[m[1;29r[34m^[[m[1;1H[34m^[[m[L[34m^[[m[1;30r[34m^[[m[1;5H[34m^[[m[32mint[34m^[[m[m a[SIZE] = {[34m^[[m[31m0[34m^[[m[m, [34m^[[m[31m0[34m^[[m[m, [34m^[[m[31m0[34m^[[m[m, [34m^[[m[311[19;1Hm0[34m^[[m[m};[34m^[[m[30;148H[34m^[[m[K[34m^[[m[30;148H15,1[34m^[[m[10C56%[34m^[[m[6;1H[34m^[[m[?25h[34m^[[m[?25l[34m^[[m[30;138H~@k[34m^[[m[6;1H[34m^[[m[30;138H   [34m^[[m[6;1H[34m^[[m[1;29r[34m^[[m[1;1H[34m^[[m[L[34m^[[m[1;30r[34m^[[m[1;5H[34m^[[m[32mint[34m^[[m[m before[SIZEE[20;1H] = {[34m^[[m[31m10[34m^[[m[m, [34m^[[m[31m10[34m^[[m[m, [34m^[[m[31m10[34m^[[m[m, [34m^[[m[31m10[34m^[[m[m};[34m^[[m[30;148H[34m^[[m[K[34m^[[m[30;148H14,1[34m^[[m[10C50%[34m^[[m[6;1H[34m^[[m[?25h[34m^[[m[?25l[34m^[[m[30;138H~@k[34m^[[m[6;1H[34m^[[m[30;138H   [34m^[[m[6;1H[34m^[[m[1;22[21;1H9r[34m^[[m[1;1H[34m^[[m[L[34m^[[m[1;30r[34m^[[m[1;5H[34m^[[m[32mint[34m^[[m[m i;[34m^[[m[30;148H[34m^[[m[K[34m^[[m[30;148H13,1[34m^[[m[10C43%[34m^[[m[6;1H[34m^[[m[?25h[34m^[[m[?25l[34m^[[m[30;138H~@k[34m^[[m[6;1H[34m^[[m[30;138H   [34m^[[m[6;1H[34m^[[m[1;29r[34m^[[m[1;1H[34m^[[m[L[34m^[[m[11[22;1H;30r[34m^[[m[1;5H[34m^[[m[32mint[34m^[[m[m index = [34m^[[m[31m0[34m^[[m[m;[34m^[[m[30;148H[34m^[[m[K[34m^[[m[30;148H12,0-1[34m^[[m[8C37%[34m^[[m[6;1H[34m^[[m[?25h[34m^[[m[?25l[34m^[[m[30;138H~@k[34m^[[m[6;1H[34m^[[m[30;138H   [34m^[[m[6;1H[34m^[[m[1;29r[34m^[[m[1;1H[34m^[[m[L[34m^[[[m[23;1H[1;30r[34m^[[m[1;1H[34m^[[m[32mint[34m^[[m[m main() {[34m^[[m[30;148H[34m^[[m[K[34m^[[m[30;148H11,1[34m^[[m[10C31%[34m^[[m[6;1H[34m^[[m[?25h[34m^[[m[?25l[34m^[[m[30;138H~@k[34m^[[m[6;1H[34m^[[m[30;138H   [34m^[[m[6;1H[34m^[[m[1;29r[34m^[[m[1;1H[34m^[[m[L[34m^[[m[1;30r[34m^[[m[300[24;1H;148H[34m^[[m[K[34m^[[m[30;148H10,1[34m^[[m[10C25%[34m^[[m[6;1H[34m^[[m[?25h[34m^[[m[?25l[34m^[[m[30;138H~@k[34m^[[m[6;1H[34m^[[m[30;138H   [34m^[[m[6;1H[34m^[[m[1;29r[34m^[[m[1;1H[34m^[[m[L[34m^[[m[1;30r[34m^[[m[1;1H[34m^[[m[35m#define OVERFLOW [34m^[[m[m[34m^[[m[31m5[34m^[[m[mm[25;1H[34m^[[m[35m [34m^[[m[m[34m^[[m[30;148H[34m^[[m[K[34m^[[m[30;148H9,1[34m^[[m[11C18%[34m^[[m[6;1H[34m^[[m[?25h[34m^[[m[?25l[34m^[[m[1;29r[34m^[[m[1;1H[34m^[[m[L[34m^[[m[1;30r[34m^[[m[1;1H[34m^[[m[35m#define SIZE [34m^[[m[m[34m^[[m[31m4[34m^[[m[m[34m^[[m[35m [34m^[[m[m[34m^[[m[30;148H[34m^[[m[K[34m^[[m[33[26;1H0;148H8,1[34m^[[m[11C12%[34m^[[m[6;1H[34m^[[m[?25h[34m^[[m[?25l[34m^[[m[30;138H~@k[34m^[[m[6;1H[34m^[[m[30;138H   [34m^[[m[6;1H[34m^[[m[1;29r[34m^[[m[1;1H[34m^[[m[L[34m^[[m[1;30r[34m^[[m[30;148H[34m^[[m[K[34m^[[m[30;148H7,1[34m^[[m[12C6%[34m^[[m[6;1H[34m^[[m[?25h[34m^[[m[?25l[34m^[[m[[[27;1H30;138H~@k[34m^[[m[6;1H[34m^[[m[30;138H   [34m^[[m[6;1H[34m^[[m[1;29r[34m^[[m[1;1H[34m^[[m[L[34m^[[m[1;30r[34m^[[m[1;1H[34m^[[m[35m#include [34m^[[m[m[34m^[[m[31m<stdio.h>[34m^[[m[m[34m^[[m[30;148H[34m^[[m[K[34m^[[m[30;148H6,1[34m^[[m[11CTop[34m^[[m[6;1H[34m^[[m[?25h[34m^[[m[?255[28;1Hl[34m^[[m[30;138H~@k[34m^[[m[6;1H[34m^[[m[30;138H   [34m^[[m[5;1H[34m^[[m[30;148H5,0-1[34m^[[m[5;1H[34m^[[m[?25h[34m^[[m[?25l[34m^[[m[30;148H4,1  [34m^[[m[4;1H[34m^[[m[?25h[34m^[[m[?25l[34m^[[m[30;138H~@k[34m^[[m[4;1H[34m^[[m[30;138H   [34m^[[m[3;1H[34m^[[m[30;148H3[34m^^[29;1H[[m[3;1H[34m^[[m[?25h[34m^[[m[?25l[34m^[[m[30;138H~@k[34m^[[m[3;1H[34m^[[m[30;138H   [34m^[[m[2;1H[34m^[[m[30;148H2,0-1[34m^[[m[2;1H[34m^[[m[?25h[34m^[[m[?25l[34m^[[m[30;138H~@k[34m^[[m[2;1H[34m^[[m[30;138H   [34m^[[m[1;1H[34m^[[m[30;148H1,1  [34m^[[m[1;1H[34m^[[m[?25h[30;148H[K[30;148H187,1[9CBot[1;1H[?25h[?25l[30;138H~@k[1;1H[30;138H   [1;1H[?25h[?25l[30;138H~@k[1;1H[30;138H   [1;1H[?25h[?25l[30;138H~@k[1;1H[30;138H   [1;1H[?25h[?25l[30;138H~@k[1;1H[30;138H   [1;1H[?25h[?25l[30;138H~@k[1;1H[30;138H   [1;1H[?25h[?25l[30;138H~@k[1;1H[30;138H   [1;1H[?25h[?25l[30;138H~@k[1;1H[30;138H   [1;1H[?25h[?25l[30;138H~@k[1;1H[30;138H   [1;1H[?25h[?25l[30;138H~@k[1;1H[30;138H   [1;1H[?25h[?25l[30;138H~@k[1;1H[30;138H   [1;1H[?25h[?25l[30;138H~@k[1;1H[30;138H   [1;1H[?25h[?25l[30;138H~@k[1;1H[30;138H   [1;1H[?25h[?25l[30;138H~@k[1;1H[30;138H   [1;1H[?25h[?25l[30;138H~@k[1;1H[30;138H   [1;1H[?25h[?25l[30;138H~@k[1;1H[30;138H   [1;1H[?25h[?25l[30;138H~@k[1;1H[30;138H   [1;1H[?25h[?25l[30;138H~@k[1;1H[30;138H   [1;1H[?25h[?25l[30;138H~@k[1;1H[30;138H   [1;1H[?25h[?25l[30;138H~@k[1;1H[30;138H   [1;1H[?25h[?25l[30;138H~@k[1;1H[30;138H   [1;1H[?25h[?25l[30;138H~@k[1;1H[30;138H   [1;1H[?25h[?25l[30;138H~@k[1;1H[30;138H   [1;1H[?25h[?25l[30;138H~@k[1;1H[30;138H   [1;1H[?25h[?25l[30;138H:[1;1H[30;138H[K[30;1H:[?2004h[?25hw[?25l[?25hq[?25l[?25h[?25l[?2004l"gdb_example.txt"
+[97m[41mWARNING: The file has been changed since reading it!!![?2004h[m
+[32mDo you really want to write to it (y/n)?[?25h[mn[?2004h
+[32mPress ENTER or type command to continue[?25l[1;1H[m[3L[1;1H}[34m^[[m[30;148H45,1[34m^[[m[10CBot[34m^[[m[29;1H[34m^[[m[?25h[34m^[[m[?25l[34m^[[m[30;138H~@k[34m^[[m[29;1H[34m^[[m[30;138H   [34m^[[m[28;1H[34m^[[m[30;149H4[34m^[[m[28;1H[34m^[[m[?25h[34m^[[m[?25l[34m^[[m[30;138H~@k[34m^[[m[28;1H[34m^[[m[30;138H   [34m^[[m[27;1H[34m^[[[m[2;1H[30;149H3,0-1[34m^[[m[27;1H[34m^[[m[?25h[34m^[[m[?25l[34m^[[m[30;138H~@k[34m^[[m[27;1H[34m^[[m[30;138H   [34m^[[m[26;1H[34m^[[m[30;149H2,1  [34m^[[m[26;1H[34m^[[m[?25h[34m^[[m[?25l[34m^[[m[30;138H~@k[34m^[[m[26;1H[34m^[[m[30;138H   [34m^[[m[25;1H[34m^[[m[30;1499[3;1HH1[34m^[[m[25;1H[34m^[[m[?25h[34m^[[m[?25l[34m^[[m[30;138H~@k[34m^[[m[25;1H[34m^[[m[30;138H   [34m^[[m[24;1H[34m^[[m[30;149H0[34m^[[m[24;1H[34m^[[m[?25h[34m^[[m[?25l[34m^[[m[30;138H~@k[34m^[[m[24;1H[34m^[[m[30;138H   [34m^[[m[23;1H[34m^[[m[30;148H39[34m^[[m[23;1H[34m^[[m[??[4;1H2[163C00[5;1H;[163C[[[6;1H1[163C;;[7;1H1[163CHH[8;1H[34m^[m[163C[[[9;1H1[163C55[10;1Hh[163C33[11;1H8[163C88[12;1HH[163C[34m[[[m[13;1H[[163C77[14;1H%[163C[[[15;1H3[163Cll[16;1He[163C??[17;1H2[163C[34m[[[m[18;1H[[163C11[19;1Hm[163CEE[20;1H][163C22[21;1H9[163C11[22;1H;[163C[34m[[[m[23;1H[[163C00[24;1H;[163Cmm[25;1H[34m^[m[163C33[26;1H0[163C[[[27;1H3[163C55[28;1Hl[163C[34m^^[29;1H[[m[30;1H[K[30;148H187,1[9CBot[1;1H[?25h[?25l[30;138Hw[1;1H[30;138H [1;5H[30;152H4-5[1;5H[?25h[?25l[30;138Hq[1;5H[?25h[?25l[30;139H:[1;5H[30;138H  [1;5H[30;148H[K[30;1H:[?2004h[21;1H[7mgdb_example.txt                                                                                                                                    187,4-5        Bot[m[22;1H[94m:[m[34m^?[mxx[34m^?^?[m[22;10H[K[23;1H[94m:[m[38;5;130mwq[m[23;4H[K[24;1H[94m:[m[24;2H[K[25;1H[94m:
+:
+:
+:[25;2H~                                                                                                                                          
